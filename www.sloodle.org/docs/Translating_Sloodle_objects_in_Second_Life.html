@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Translating_Sloodle_objects_in_Second_Life by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:16 GMT -->
+<head>
+    <title>Translating Sloodle objects in Second Life - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<pre>Note: the method of translating in-world Sloodle objects will change in Sloodle 0.3.
+</pre>
+<p>There are many Sloodle objects in Second Life, and they are all initially developed in English. Unfortunately, LSL is much slower than PHP, and so the same localization facilities are not available in-world as in Moodle. Additionally, some aspects could not work in that way. As such, we typically need to maintain different objects for different translations.
+</p><p><b>Please note:</b> whenever you do translation work for Sloodle, it would be useful if you could provide a list of words/phrases/sentences you have translated, where they occurred, the object versions, and what the original text was (the list could be provided on the forums or the wiki). This would allow programmers to re-use your translations in future versions, without requiring you to go back through the same objects multiple times.
+</p><p><br />
+</p>
+
+<h2> <span class="mw-headline" id="Before_you_start"> Before you start </span></h2>
+<p>To avoid duplication of effort, please report your interest in translating a particular object by posting on the Sloodle.org forums. You can hopefully also find collaborators, so that the translation work can be shared among several people.
+</p><p><br />
+</p>
+<h2> <span class="mw-headline" id="What_to_translate"> What to translate </span></h2>
+<h3> <span class="mw-headline" id="Textures"> Textures </span></h3>
+<p>All Sloodle objects have textures on them, and there are often words or phrases on these textures (such as buttons or instructions). We will try to make all images available so that you can download the original as a JPG or PNG or similar, edit it, and re-upload it into Second Life (note: the Sloodle project cannot offer reimbursement of upload fees). The placement, colour and style of text on these textures if often very important, so please try to match your translations as closely as possible to the originals.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Notecards"> Notecards </span></h3>
+<p>We do not use notecards much (except the configuration notecards, '<a href="Sloodle_config.html" title="Sloodle config">sloodle_config</a>' and '<a href="Sloodle_config_sample.html" title="Sloodle config sample">sloodle_config_sample</a>', which do not need translated). However, notecards may be used to provide instructions in future, in which case assistance in translating them would be much appreciated.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Scripts"> Scripts </span></h3>
+<p>The translation of scripts is a very big task, and you will definitely need some knowledge of LSL to do it. Most of the contents of the script should <i>not</i> be translated, as it must remain readable for the programmers! However, the scripts will often provide instructions or information to the user, and it would be useful to translate these items of text. You are generally looking to translate text output with the following LSL functions:
+</p>
+<ul><li> llSetText
+</li><li> llWhisper  {channel 0}
+</li><li> llSay   {channel 0}
+</li><li> llDialog
+</li></ul>
+<h2> <span class="mw-headline" id="Sloodle_LSL_Translation_Code"> Sloodle LSL Translation Code </span></h2>
+<ol><li>) Include the following constants in your LSL Code:
+</li></ol>
+<p>// Translation output methods
+string SLOODLE_TRANSLATE_LINK = "link";             // No output parameters - simply returns the translation on SLOODLE_TRANSLATION_RESPONSE link message channel
+string SLOODLE_TRANSLATE_SAY = "say";               // 1 output parameter: chat channel number
+string SLOODLE_TRANSLATE_WHISPER = "whisper";       // 1 output parameter: chat channel number
+string SLOODLE_TRANSLATE_SHOUT = "shout";           // 1 output parameter: chat channel number
+string SLOODLE_TRANSLATE_REGION_SAY = "regionsay";  // 1 output parameter: chat channel number
+string SLOODLE_TRANSLATE_OWNER_SAY = "ownersay";    // No output parameters
+string SLOODLE_TRANSLATE_DIALOG = "dialog";         // Recipient avatar should be identified in link message keyval. At least 2 output parameters: first the channel number for the dialog, and then 1 to 12 button label strings.
+string SLOODLE_TRANSLATE_LOAD_URL = "loadurl";      // Recipient avatar should be identified in link message keyval. 1 output parameter giving URL to load.
+string SLOODLE_TRANSLATE_HOVER_TEXT = "hovertext";  // 2 output parameters: colour &lt;r,g,b&gt;, and alpha value
+string SLOODLE_TRANSLATE_IM = "instantmessage";     // Recipient avatar should be identified in link message keyval. No output parameters.
+</p><p><br />
+</p>
+<h2> <span class="mw-headline" id="Translating_llDialog"> Translating llDialog </span></h2>
+<p><b>integer</b> SLOODLE_CHANNEL_AVATAR_DIALOG = 6000000 + (integer)(llFrand( 6000001 )); //create a random channel to listen on so that your object doesnt cause another objects menu to appear!
+</p><p><b>list buttons</b> = [BUTTON0, BUTTON1, BUTTON2, BUTTON3, BUTTON4, BUTTON5, BUTTON6, BUTTON7, BUTTON8, BUTTON9, BUTTON10, BUTTON11] //maximum of 12!
+</p><p><b>string translationLooku</b>p = "webintercom:ctrlmenu"; //"webintercom:ctrlmenu" is an example translation you can find in sloodle_translation_metagloss_en.lsl
+</p><p><b>list stringParams</b> = ["Help", "Cancel"];  // these get inserted into the dialog text as variables ie:  Please choose <a href="http__/localhost/sl/indexc5e8.html?title=Template:0&amp;action=edit&amp;redlink=1" class="new" title="Template:0 (page does not exist)">Template:0</a> or <a href="http__/localhost/sl/index05f3.html?title=Template:1&amp;action=edit&amp;redlink=1" class="new" title="Template:1 (page does not exist)">Template:1</a> will display:  "Please choose 
+Help or Cancel"
+</p><p><b>key uuidToSendDialogTo</b> = llDetectedKey(0);
+</p><p><b>sloodle_translation_request</b>(SLOODLE_TRANSLATE_DIALOG, [SLOODLE_CHANNEL_AVATAR_DIALOG]+buttons, translationLookup, stringParams, uuidToSendDialogTo, 
+"webintercom");
+</p><p>Note: There may be other function used to output text, and strings may be stored prior to output with a function. You probably need to translate nearly any plain-text string.
+</p>
+<h2> <span class="mw-headline" id="Translating_llLoadURL"> Translating llLoadURL</span></h2>
+<p><b>string urltoload</b> = "<a rel="nofollow" class="external free" href="http://www.sloodle.org/">http://www.sloodle.org</a>"; //the  url to load<br />
+<b>string transLookup</b> = "userauthurl"; //the translation lookup as defined in your translation script which will be displayed on the dialog<br />
+<b>key avuuid</b> = ""; // this is the avatar the dialog will be displayed to<br />
+<b>sloodle_translation_request</b>(SLOODLE_TRANSLATE_LOAD_URL, [urltoload], transLookup , [], avuuid, "");<br />
+</p>
+<h2> <span class="mw-headline" id="Translating_llSay"> Translating llSay</span></h2>
+<p>Example Use: 
+</p><p><b>list stringParams</b> = ["1","2"];
+</p><p><b>string batch</b> = "metagloss"; //the sloodle tool we are translating
+</p><p><b>integer channe</b>l = 0;
+</p><p><b>sloodle_translation_request</b>(SLOODLE_TRANSLATE_OWNER_SAY, [channel], "metagloss:checkok", stringParams, NULL_KEY, batch);
+</p>
+<h2> <span class="mw-headline" id="What_to_do_next"> What to do next </span></h2>
+<p>When you have finished translating an object, please pass a copy to a member of the core Sloodle team (with copy/modify permissions enabled on <i>all</i> items, including textures/scripts). "Pedro McMillan" should be able to handle this for you. The object will be tested, and if it works correctly and has the correct permissions, it will be added to the official Sloodle Distributor for use by other people.
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 49/1000000
+Post‐expand include size: 516/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Before_you_start"><span class="tocnumber">1</span> <span class="toctext">Before you start</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_to_translate"><span class="tocnumber">2</span> <span class="toctext">What to translate</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Textures"><span class="tocnumber">2.1</span> <span class="toctext">Textures</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Notecards"><span class="tocnumber">2.2</span> <span class="toctext">Notecards</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Scripts"><span class="tocnumber">2.3</span> <span class="toctext">Scripts</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Sloodle_LSL_Translation_Code"><span class="tocnumber">3</span> <span class="toctext">Sloodle LSL Translation Code</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Translating_llDialog"><span class="tocnumber">4</span> <span class="toctext">Translating llDialog</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Translating_llLoadURL"><span class="tocnumber">5</span> <span class="toctext">Translating llLoadURL</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Translating_llSay"><span class="tocnumber">6</span> <span class="toctext">Translating llSay</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#What_to_do_next"><span class="tocnumber">7</span> <span class="toctext">What to do next</span></a></li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Translating_Sloodle_objects_in_Second_Life by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:16 GMT -->
+</html>
+
+

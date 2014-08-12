@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Translating_the_Sloodle_module by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:15 GMT -->
+<head>
+    <title>Translating the Sloodle module - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+
+<h1> <span class="mw-headline" id="Introduction"> Introduction </span></h1>
+<p>According to the Moodle coding guidelines, the Sloodle module should be developed to allow different language translations to be included easily. For text that appears in the usual Sloodle web-pages, this means keeping all of the module text (e.g. headings, instructions, forms etc.) in separate files (called localization files), with one file for each language. Each block of text, such as a sentence or a paragraph, will be identified by a short English name, and all of our source code will reference those text blocks. For the module documentation (help files which popup when you click a help button), this means storing the help files in a special way.
+</p><p>You may want to read the <a rel="nofollow" class="external text" href="http://docs.moodle.org/en/Translation">Moodle translation documentation</a> for a deeper background.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="But_Why.3F"> But Why? </span></h3>
+<p>It is certainly a lot easier for us programmers just to throw text around wherever we feel like doing it. However, we have already received requests for Sloodle in other languages, and translation is *much* easier if we use Moodle's own localization formats. In fact, it's so easy, we can get translators to do it without any significant programming ability whatsoever.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Where_are_the_language_files.3F"> Where are the language files? </span></h3>
+<p>In the Sloodle folder, you will see a "lang" folder. Inside that, there is a sub-folder for each language, e.g. "en_utf8" for English.
+</p><p>Within each of those folders is a localization file called "sloodle.php" which contains all the localization strings (it is crucial that each language file is named and stored this way, otherwise Moodle will not find it). There is also a "help" folder, with another "sloodle" folder inside it. All of the help files are stored in there, as small HTML files.
+</p><p>For example, for Sloodle.org, the English localization file for Sloodle would be stored here:
+</p>
+<pre><a rel="nofollow" class="external free" href="http://www.sloodle.org/mod/sloodle/lang/en_utf8/sloodle.php">http://www.sloodle.org/mod/sloodle/lang/en_utf8/sloodle.php</a>
+</pre>
+<p>An English help file about "object authorization" would be stored here:
+</p>
+<pre><a rel="nofollow" class="external free" href="http://www.sloodle.org/mod/sloodle/lang/en_utf8/help/sloodle/object_authorization.html">http://www.sloodle.org/mod/sloodle/lang/en_utf8/help/sloodle/object_authorization.html</a>
+</pre>
+<p><br />
+</p>
+<h1> <span class="mw-headline" id="How_does_it_affect_me.3F"> How does it affect me? </span></h1>
+<p>If you are contributing code to Sloodle, and your code produces text output which the user may see (e.g. instructions, error messages, information etc.), then you need to use localization strings. This is not too hard, but requires you to change the way you add strings into your code. If you need use popup help files, then you will have to add the files to the correct folder, and use the Moodle <a rel="nofollow" class="external text" href="http://phpdocs.moodle.org/moodlecore/_lib---weblib.php.html#functionhelpbutton">helpbutton()</a> function to create a link to it.
+</p>
+<h3> <span class="mw-headline" id="Localization_Strings"> Localization Strings </span></h3>
+<h4> <span class="mw-headline" id="Creating_strings"> Creating strings </span></h4>
+<p>Instead of simply adding the strings directly into your code, plan out what strings you need, and give each one a concise English name (you may categorise several together if you wish). <b>Please</b> follow the <a href="Localization_String_Guidelines.html" title="Localization String Guidelines">Localization String Guidelines</a> when doing this... they are simple to use!
+</p><p><br />
+</p>
+<h4> <span class="mw-headline" id="Adding_strings_to_the_language_file"> Adding strings to the language file </span></h4>
+<p>Before you can use the strings in your code, you must add them to your local language file(s). Open the English language file (see above for how to find that) and you will see the format. Each line defines a single string, in this way:
+</p>
+<pre>$string['stringname'] = 'string text';
+</pre>
+<p>As you can see, the file is simply populating an associative array, which associates string names with their content. Simply copy the format, and add in your own string names and content, then save the file, and Moodle will be able to find them. Please try to keep the file neat and tidy, by putting each string in alphabetical order, according to its name.
+</p><p><br />
+</p>
+<h4> <span class="mw-headline" id="Using_strings_in_your_code"> Using strings in your code </span></h4>
+<p>Moodle will take care of fetching the correct set of strings according to the current language. All you need to do is request each string (by name) at the appropriate points in your code. There are two ways of doing this:
+</p>
+<pre>get_string( "stringname", "modulename" );
+print_string( "stringname", "modulename" );
+</pre>
+<p>The first function returns the string as an item of data, while the second outputs it directly to the HTML body. (Note that in our case, the module name is always "sloodle".)
+</p><p>And that's it! You will quickly become familiar with the process.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Help_Files"> Help Files </span></h3>
+<h4> <span class="mw-headline" id="Adding_the_file"> Adding the file </span></h4>
+<p>Let's say you want to create an English help file about the name "Sloodle" and what it means. You would create a file called "sloodle_name.html", and place it in "sloodle/lang/en_utf8/help/sloodle". You do not add any header or body information to file. Just creating a heading, such as:
+</p>
+<ul><li> &lt;h3&gt;Sloodle name&lt;/h3&gt;
+</li></ul>
+<p>Then add the body information, e.g.:
+</p>
+<ul><li> &lt;p&gt;Sloodle is a combination of "Second Life" and "Moodle".&lt;/p&gt;
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="Adding_the_help_button"> Adding the help button </span></h4>
+<p>The usual appearance of a popup helpfile in Moodle in a yellow circle with a question mark. You can use Moodle to generate this for you, using the <a rel="nofollow" class="external text" href="http://phpdocs.moodle.org/moodlecore/_lib---weblib.php.html#functionhelpbutton">helpbutton()</a> function, like this:
+</p>
+<ul><li> helpbutton('sloodle_name', <i>, 'sloodle', true, false);</i>
+</li></ul>
+<p>If you change the last "false" to a "true", then the second argument becomes a title string displayed beside the button. However, you will probably need to create a separate localization string for this, so that it gets translated appropriately.
+</p><p><br />
+</p>
+<h4> <span class="mw-headline" id="Translation"> Translation </span></h4>
+<p>All you need to do is repeat the "Adding the file" process for each language, putting the appropriate translation of the file into each place. Moodle will automatically detect the user's preferred language, and display the help file (if available). It will revert to the site default (usually English) if the user's preferred language is not available.
+</p><p><br />
+</p>
+<h1> <span class="mw-headline" id="Affected_Files"> Affected Files </span></h1>
+<h2> <span class="mw-headline" id="Source_Code"> Source Code </span></h2>
+<p>Any source code file (typically *.php) which outputs any text to the browser is likely to be affected. This even includes labels on buttons, and "alt" or "title" attributes of images and links. Variables, commands, and error/debug messages will typically still be in English, although these can be translated as well if needed.
+</p><p><br />
+</p>
+<h4> <span class="mw-headline" id="Current_Language_Files"> Current Language Files </span></h4>
+<ul><li> sloodle.php
+</li><li> help/sloodle/object_authorization.html
+</li><li> help/sloodle/object_distributor.html
+</li><li> help/sloodle/prim_password.html
+</li><li> help/sloodle/user_authentication.html
+</li><li> help/sloodle/version_numbers.html
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="Requested_Languages"> Requested Languages </span></h4>
+<p>These are the languages we know there is a need for:
+</p>
+<ul><li> Spanish (es_utf8)
+</li></ul>
+<p><br />
+</p>
+<h1> <span class="mw-headline" id="Get_Involved.21"> Get Involved! </span></h1>
+<p>Are you able to translate the Sloodle module into the other languages? If so, we want to hear from you! Let us know of your interest on the Sloodle forums, and see if there's a need for the language(s) you can translate.
+</p><p>Once you have found a language you can translate to, obtain the latest Sloodle source code. If needed, created the folders and files for your translation (best to copy them from the English files), and begin editing them to use your language.
+</p><p>When translating, it would be best if everybody translates from the English version, to help prevent mistranslations! We are hoping to have a translation module setup on Sloodle.org, which will make the process even simpler. An announcement will be made on the Sloodle News forums when that is available.
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 70/1000000
+Post‐expand include size: 486/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#But_Why.3F"><span class="tocnumber">1.1</span> <span class="toctext">But Why?</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Where_are_the_language_files.3F"><span class="tocnumber">1.2</span> <span class="toctext">Where are the language files?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#How_does_it_affect_me.3F"><span class="tocnumber">2</span> <span class="toctext">How does it affect me?</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Localization_Strings"><span class="tocnumber">2.1</span> <span class="toctext">Localization Strings</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Creating_strings"><span class="tocnumber">2.1.1</span> <span class="toctext">Creating strings</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Adding_strings_to_the_language_file"><span class="tocnumber">2.1.2</span> <span class="toctext">Adding strings to the language file</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Using_strings_in_your_code"><span class="tocnumber">2.1.3</span> <span class="toctext">Using strings in your code</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Help_Files"><span class="tocnumber">2.2</span> <span class="toctext">Help Files</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="#Adding_the_file"><span class="tocnumber">2.2.1</span> <span class="toctext">Adding the file</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Adding_the_help_button"><span class="tocnumber">2.2.2</span> <span class="toctext">Adding the help button</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Translation"><span class="tocnumber">2.2.3</span> <span class="toctext">Translation</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Affected_Files"><span class="tocnumber">3</span> <span class="toctext">Affected Files</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="#Source_Code"><span class="tocnumber">3.1</span> <span class="toctext">Source Code</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="#Current_Language_Files"><span class="tocnumber">3.1.1</span> <span class="toctext">Current Language Files</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="#Requested_Languages"><span class="tocnumber">3.1.2</span> <span class="toctext">Requested Languages</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#Get_Involved.21"><span class="tocnumber">4</span> <span class="toctext">Get Involved!</span></a></li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Translating_the_Sloodle_module by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:16 GMT -->
+</html>
+
+

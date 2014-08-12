@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Unit_tests by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:24 GMT -->
+<head>
+    <title>Unit tests - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<table style="border:solid 2px red; background-color:#ffffff; width:100%; font-style:italic; color:red;">
+<tr>
+<th> This <a href="Sloodle.html" title="Sloodle" class="mw-redirect">Sloodle</a> article needs to be updated, so it may no longer be accurate. You could help by updating it.
+</th></tr></table>
+<p><br />
+Provisionally, we are putting together a set of automated tests under the sloodle_tests directory. (This isn't included in a normal sloodle checkout)
+</p><p>You can checkout the sloodle tests into your modules directory with:
+</p>
+<pre>  svn checkout <a rel="nofollow" class="external free" href="https://anon@sloodle.googlecode.com/svn/trunk/sloodle_tests">https://anon@sloodle.googlecode.com/svn/trunk/sloodle_tests</a>
+</pre>
+<p><br />
+This uses the PHP <a rel="nofollow" class="external text" href="http://www.lastcraft.com/simple_test.php">SimpleTest</a> framework.
+</p><p>TODO: Moodle already uses SimpleTest - we should really figure out how they arrange things, and do it the same way.
+</p><p>Currently, these are mostly HTTP accesses simulating the requests Second Life objects would send to the web server.
+</p>
+
+<h2> <span class="mw-headline" id="Test_data"> Test data </span></h2>
+<p>We will need the following test data in the database of the test installation.
+Provisionally, I'm putting a test installation at <a rel="nofollow" class="external free" href="http://test.moodlefarm.socialminds.jp/">http://test.moodlefarm.socialminds.jp</a>
+</p><p>As we create functionlity in Sloodle using more data, we will need to create more test data.
+</p>
+<h3> <span class="mw-headline" id="Courses"> Courses </span></h3>
+<ul><li> c1 "Course Test 1" (allow students to enrol themselves)
+</li><li> c2 "Course Test 2" (do not students to enrol themselves)
+</li></ul>
+<h3> <span class="mw-headline" id="Users"> Users </span></h3>
+<ul><li> admin1 Admin1first Admin1last (c1,c2)
+</li><li> admin2 Admin2first Admin2last ()
+</li></ul>
+<ul><li> t1 Teacher1first Teacher1last (c1)
+</li><li> t2 Teacher2first Teacher2last (c1,c2)
+</li><li> t3 Teacher3first Teacher3last ()
+</li></ul>
+<ul><li> s1 Student1first Student1last (c1)
+</li><li> s2 Student2first Student2last (c1,c2)
+</li><li> s3 Student3first Student3last ()
+</li></ul>
+<h3> <span class="mw-headline" id="Quizzes"> Quizzes </span></h3>
+<ul><li> q1 "Quiz Test 1" (c1) 
+</li><li> q2 "Quiz Test 2" (c1)
+</li><li> q3 "Quiz Test 3" (c2)
+</li></ul>
+<h3> <span class="mw-headline" id="Chatrooms"> Chatrooms </span></h3>
+<ul><li> ch1 "Chatroom Test 1" (c1)
+</li><li> ch2 "Chatroom Test 2" (c1)
+</li><li> ch3 "Chatroom Test 3" (c2)
+</li></ul>
+<h2> <span class="mw-headline" id="Configuring_the_tests"> Configuring the tests </span></h2>
+<p>The details of test users, prim passwords etc. are set in sloodle_tests/config.php.
+</p><p>When this is done, I'll make available a database dump that will allow you to setup a sloodle installation with the appropriate dummy data so that you can run the tests.
+</p><p>TODO: It would be better to have the test suite create all the dummy data itself, then clean up when it's done...
+</p><p><br />
+Edmund Edgar, 2007-04-16
+</p><p><br /> 
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 30/1000000
+Post‐expand include size: 702/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Test_data"><span class="tocnumber">1</span> <span class="toctext">Test data</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Courses"><span class="tocnumber">1.1</span> <span class="toctext">Courses</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Users"><span class="tocnumber">1.2</span> <span class="toctext">Users</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Quizzes"><span class="tocnumber">1.3</span> <span class="toctext">Quizzes</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Chatrooms"><span class="tocnumber">1.4</span> <span class="toctext">Chatrooms</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Configuring_the_tests"><span class="tocnumber">2</span> <span class="toctext">Configuring the tests</span></a></li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Unit_tests by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:24 GMT -->
+</html>
+
+

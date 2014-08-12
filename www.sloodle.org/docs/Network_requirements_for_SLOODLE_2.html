@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Network_requirements_for_SLOODLE_2 by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:53 GMT -->
+<head>
+    <title>Network requirements for SLOODLE 2 - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p>To use SLOODLE 2 you need your Moodle server to be able to send HTTP requests to your in-world objects in SL or OpenSim. If it can't do that, you'll get a "Server connection failed" error message when you try to use the rezzer.
+</p><p>Some firewalls and network settings make this difficult. Specifically:
+</p>
+
+<h3> <span class="mw-headline" id="Outgoing_ports_on_your_Moodle_server"> Outgoing ports on your Moodle server </span></h3>
+<p>Some server hosting companies have firewalls that prevent traffic being sent to the ports used in Second Life and OpenSim.
+</p><p>To send requests to Second Life, you need to get them to open port 12046 outgoing. You should also ask them to open 12043 outgoing, which we may use in future.
+</p><p>If you're using OpenSim, the port you need may depend on how it's set up, but the default port seems to be 9000. See <a rel="nofollow" class="external free" href="http://opensimulator.org/wiki/Network_Settings">http://opensimulator.org/wiki/Network_Settings</a> for more information.
+</p><p>To check direction what port your grid is trying to use, set up the rezzer then run the following query on your MySQL database:
+</p><p>select distinct(httpinurl) from mdl_sloodle_active_object;
+</p><p>The port number is the part after the server name in, eg if the URL is
+</p><p><a rel="nofollow" class="external free" href="http://my.server.example.com:9000/lslhttp/6abc7937-8618-4d96-b4d9-e550411aa32f/">http://my.server.example.com:9000/lslhttp/6abc7937-8618-4d96-b4d9-e550411aa32f/</a> 
+</p><p>...the port number is 9000.
+</p>
+<h4> <span class="mw-headline" id="Hosting_companies_we_know_about"> Hosting companies we know about </span></h4>
+<p>We'll fill in information about hosting companies we know about as we get it. If you have problems with a host not listed here, please fill it in and let us know whether they could resolve it.
+</p>
+<ul><li> Hostgator: Ports are disabled by default. Email support@hostgator.com to get them to open them for you.
+</li></ul>
+<h4> <span class="mw-headline" id="Workarounds_if_you_can.27t_do_this"> Workarounds if you can't do this </span></h4>
+<p>If your Moodle host won't open these ports for you, it may be possible to get traffic out of your Moodle server on port 80 or 443 and send it to a proxy server, then from there to Second Life or OpenSim. Please post on the forums if you'd like to try this and we'll take you through it.
+</p>
+<h3> <span class="mw-headline" id="OpenSim_behind_the_firewall"> OpenSim behind the firewall </span></h3>
+<p>If you have a Moodle server outside your firewall and an OpenSim server inside your firewall, traffic may not be able to get from your Moodle server to your OpenSim server. The solution is to set up a rule on your firewall to allow traffic in. You may also need to set up NAT. 
+</p><p>See <a rel="nofollow" class="external free" href="http://opensimulator.org/wiki/Network_Settings">http://opensimulator.org/wiki/Network_Settings</a> for information on how to do this. The OpenSim network settings information is designed for users trying to access the grid from outside the firewall, but the same will apply to a Moodle server trying to access the grid from outside the firewall. 
+</p><p>If you prefer not to open up your grid to the public for security reasons, you can limit the permitted incoming IP address so that only your Moodle server is allowed to talk to your OpenSim server from the outside.
+</p>
+<h4> <span class="mw-headline" id="Workarounds_if_you_can.27t_do_this_2"> Workarounds if you can't do this </span></h4>
+<p>If you can't make these firewall settings, it may be possible to work around it by creating an SSL tunnel from your OpenSim server to your Moodle server. Please post on the forums if you'd like to try this and we'll take you through it.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 19/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Outgoing_ports_on_your_Moodle_server"><span class="tocnumber">1</span> <span class="toctext">Outgoing ports on your Moodle server</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Hosting_companies_we_know_about"><span class="tocnumber">1.1</span> <span class="toctext">Hosting companies we know about</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Workarounds_if_you_can.27t_do_this"><span class="tocnumber">1.2</span> <span class="toctext">Workarounds if you can't do this</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#OpenSim_behind_the_firewall"><span class="tocnumber">2</span> <span class="toctext">OpenSim behind the firewall</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Workarounds_if_you_can.27t_do_this_2"><span class="tocnumber">2.1</span> <span class="toctext">Workarounds if you can't do this</span></a></li>
+</ul>
+</li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Network_requirements_for_SLOODLE_2 by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:53 GMT -->
+</html>
+
+

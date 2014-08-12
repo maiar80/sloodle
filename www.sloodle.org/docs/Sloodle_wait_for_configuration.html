@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_wait_for_configuration by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:59 GMT -->
+<head>
+    <title>Sloodle wait for configuration - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+
+<h3> <span class="mw-headline" id="Introduction"> Introduction </span></h3>
+<p>This is a fragment from the <a href="Sloodle_LSL_Library.html" title="Sloodle LSL Library">Sloodle LSL Library</a>, meaning that you must copy-and-paste it into your own LSL scripts in order to use it. You may also need to customize it to suit your own needs.
+</p><p>The fragment is an LSL state designed for objects which need to receive some kind of configuration before being usable. When transferred into this state, the script will do nothing but recevie link messages, and send them on to an appropriate handling function which you must also define in your code (see <a href="http__/localhost/sl/index680a.html?title=Sloodle_handle_command&amp;action=edit&amp;redlink=1" class="new" title="Sloodle handle command (page does not exist)">sloodle_handle_command</a>). Once configuration is complete, the state should transfer control to an appropriate subsequent state (such as 'default') or similar.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Channel_Numbering"> Channel Numbering </span></h3>
+<p><b>Note:</b> according to the Sloodle conventions, all data transfer/communication in-world should use the standard channels (see <a href="Sloodle_channels.html" title="Sloodle channels">Sloodle channels</a>). For data transfer between objects, such as configuration commands, this should be <a href="http__/localhost/sl/index5d85.html?title=SLOODLE_CHANNEL_OBJECT_DIALOG&amp;action=edit&amp;redlink=1" class="new" title="SLOODLE CHANNEL OBJECT DIALOG (page does not exist)">SLOODLE_CHANNEL_OBJECT_DIALOG</a>.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="After_Configuration"> After Configuration </span></h3>
+<p>Your script should be configured to detect when all expected configuration data has arrived. When it has, the state is changed using the LSL "state" command. It is best not to do this within a function, so it is recommended that your <a href="http__/localhost/sl/index680a.html?title=Sloodle_handle_command&amp;action=edit&amp;redlink=1" class="new" title="Sloodle handle command (page does not exist)">sloodle_handle_command</a> function returns TRUE (that is, integer 1) if the script is fully configured, or FALSE (that is, integer 0) if not. The "link_message" event in this state can then check the return value and respond appropriately.
+</p><p>It is intended that some kind of "EOF" (end-of-file) command will be implemented, so that when all available configuration data has been sent to your object, the last command will be "EOF". When received, your <a href="http__/localhost/sl/index680a.html?title=Sloodle_handle_command&amp;action=edit&amp;redlink=1" class="new" title="Sloodle handle command (page does not exist)">sloodle_handle_command</a> function should check if all <b>required</b> data has been specified, and either continue waiting or issue an error if not. The purpose of the EOF command is to allow additional optional data to be specified, so that even after all required data has arrived, your script will continue to wait in case anything optional is also specified. However, this should only affect the <a href="http__/localhost/sl/index680a.html?title=Sloodle_handle_command&amp;action=edit&amp;redlink=1" class="new" title="Sloodle handle command (page does not exist)">sloodle_handle_command</a> function.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Example_Code"> Example Code </span></h3>
+<p>Here is an example of the state:
+</p>
+<hr /><pre style="border:solid 1px #555555;">
+// It is important to declare the correct channel number
+integer SLOODLE_CHANNEL_OBJECT_DIALOG = -3857343;
+
+
+// Insert the sloodle_debug function here if you want to use it
+//...
+
+
+state sloodle_wait_for_configuration
+{
+    state_entry()
+    {
+        // This is optional, and you must define the sloodle_debug function if you want to use it:
+        sloodle_debug(&quot;Waiting for configuration commands.&quot;);
+    }
+    
+    link_message( integer sender_num, integer num, string str, key id)
+    {
+        // Check that the message is on the correct channel
+        if (num == SLOODLE_CHANNEL_OBJECT_DIALOG) {
+            // Send the command, and check if configuration is complete
+            if (sloodle_handle_command(str) == TRUE) {
+                // Configuration is complete. Move on...
+                sloodle_debug(&quot;Configuration complete.&quot;);
+                state default; // &lt;-- change this state if you want to use something else
+                return;
+            }
+        }
+    }
+}
+</pre><hr />
+<p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 21/1000000
+Post‐expand include size: 486/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Channel_Numbering"><span class="tocnumber">2</span> <span class="toctext">Channel Numbering</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#After_Configuration"><span class="tocnumber">3</span> <span class="toctext">After Configuration</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Example_Code"><span class="tocnumber">4</span> <span class="toctext">Example Code</span></a></li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_wait_for_configuration by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:59 GMT -->
+</html>
+
+

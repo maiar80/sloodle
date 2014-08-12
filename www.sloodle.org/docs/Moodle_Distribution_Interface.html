@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Moodle_Distribution_Interface by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:58 GMT -->
+<head>
+    <title>Moodle Distribution Interface - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.2, 0.21" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.2, 0.21</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<p><b>Please note:</b> the information on this page refers to old version of Sloodle (0.2 and 0.21). The equivalent functionality and information for <i>Sloodle 0.3</i> can be found using the <a href="Sloodle_Distributor_Module.html" title="Sloodle Distributor Module">Sloodle Distributor Module</a> combined with the <a href="SLOODLE_Vending_Machine-2.html" title="SLOODLE Vending Machine">SLOODLE Vending Machine</a>.
+</p><p><br />
+The <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Sloodle Object Distributor</a> is not a usable object on its own. Instead, you need to use an interface, such as the web-based interface which is documented here. Alternatively, you can use an in-world interface, which is called the <a href="Sloodle_Object_Selector.html" title="Sloodle Object Selector">Sloodle Object Selector</a>.
+</p><p><br />
+</p>
+
+<h2> <span class="mw-headline" id="Configuration"> Configuration </span></h2>
+<p>There is no configuration required to use the Moodle distribution interface. You need to have a <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Sloodle Object Distributor</a> rezzed in Second Life, and it needs to have connected successfully to your website. Anybody who has an account on your Moodle site can then access the distribution interface.
+</p><p><br />
+</p>
+<h2> <span class="mw-headline" id="Where_is_it.3F"> Where is it? </span></h2>
+<p>For educators/administrators, it is advisable to create a link somewhere on your Moodle site to the distribution interface, as it is a long address. You will find it at the following location, relative to the root address of your Moodle installation:
+</p>
+<pre>/mod/sloodle/sl_distrib/sl_send_object.php
+</pre>
+<p>So for example, the distribution interface for Sloodle.org is at:
+</p>
+<pre><a rel="nofollow" class="external free" href="http://www.sloodle.org/mod/sloodle/sl_distrib/sl_send_object.php">http://www.sloodle.org/mod/sloodle/sl_distrib/sl_send_object.php</a>
+</pre>
+<p><br />
+</p>
+<h2> <span class="mw-headline" id="Usage"> Usage </span></h2>
+<p>There are two parts of the interface, although most users will only see the first. Note also that, if the <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">object distributor</a> is not connected, or if it does not contain any items, then only an error message will be displayed.
+</p>
+<h3> <span class="mw-headline" id="Sections"> Sections </span></h3>
+<h4> <span class="mw-headline" id=".22Send_to_me.22"> "Send to me" </span></h4>
+<p>All users will be able to see this section, although it may be disabled. It allows a user to request the system to send an object to their avatar in-world. Usage is as follows:
+</p>
+<ul><li> Select the object you want from the drop-down menu
+</li><li> Click "Send to me"
+</li></ul>
+<p>Note that the "Send to me" button also contains your avatar's name, so you can confirm that it will be sent to the correct avatar.
+</p><p><br />
+This section will be disabled if the Moodle site doesn't know who your avatar is. You need to <a href="Registration_and_Enrolment.html" title="Registration and Enrolment">register</a> (or 'authenticate') your avatar with the Moodle site, using an appropriate in-world object. Alternatively, you could simply use an in-world <a href="Sloodle_Object_Selector.html" title="Sloodle Object Selector">Sloodle Object Selector</a> which is connected to the same site.
+</p><p><br />
+</p>
+<h4> <span class="mw-headline" id=".22Send_to_another_avatar.22"> "Send to another avatar" </span></h4>
+<p>This section is only visible to Moodle users with Teacher or Administrator privileges, and it allows objects to be sent to any avatar which is registered with the Moodle site. Usage is as follows:
+</p>
+<ul><li> Select an object from the first drop-down menu
+</li><li> Select a recipient avatar from the second drop-down menu
+</li><li> Click "Send object"
+</li></ul>
+<p><br />
+</p>
+<h3> <span class="mw-headline" id="Sending_Objects"> Sending Objects </span></h3>
+<p>After you have clicked the appropriate "Send..." button, the system will attempt to contact the connected <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Distributor</a>. This may take some time, so it is advisable to be patient. If nothing happens after a minute, or if an error message appears, then there is probably a problem with the distributor. It may need to be re-rezzed or re-connected.
+</p><p><b>WARNING!</b> Rezzing more than one Distributor for the same site will cause interference. See <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Sloodle Object Distributor</a> for more information.
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 40/1000000
+Post‐expand include size: 841/2097152 bytes
+Template argument size: 18/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Configuration"><span class="tocnumber">1</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Where_is_it.3F"><span class="tocnumber">2</span> <span class="toctext">Where is it?</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Usage"><span class="tocnumber">3</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Sections"><span class="tocnumber">3.1</span> <span class="toctext">Sections</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#.22Send_to_me.22"><span class="tocnumber">3.1.1</span> <span class="toctext">"Send to me"</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#.22Send_to_another_avatar.22"><span class="tocnumber">3.1.2</span> <span class="toctext">"Send to another avatar"</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#Sending_Objects"><span class="tocnumber">3.2</span> <span class="toctext">Sending Objects</span></a></li>
+</ul>
+</li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Moodle_Distribution_Interface by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:58 GMT -->
+</html>
+
+

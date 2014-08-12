@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_Versions by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:44 GMT -->
+<head>
+    <title>Sloodle Versions - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+
+<h1> <span class="mw-headline" id="Version_Numbers"> Version Numbers </span></h1>
+<p>Sloodle has two separate version numbers, both of which are important. You can find out which version of Sloodle you are running by visiting your <a href="Sloodle_Module_Configuration.html" title="Sloodle Module Configuration" class="mw-redirect">Sloodle Module Configuration</a> page, or by visiting the <a href="http__/localhost/sl/indexf25e.html?title=Sloodle_Version_Linker&amp;action=edit&amp;redlink=1" class="new" title="Sloodle Version Linker (page does not exist)">Sloodle Version Linker</a>.
+</p>
+<h3> <span class="mw-headline" id="Sloodle_Version"> Sloodle Version </span></h3>
+<p>The "Sloodle Version" number is usually very small, such as 0.19 or 0.2. It indicates the 'generation' of Sloodle, which is usually used to mark fairly major releases. For example, the  move from the 0.1x generation up to 0.2 saw huge changes in the communications format. (See the <a href="Sloodle_Versions.html#Version_History" title="Sloodle Versions">Version History</a> section below for more info.) This number is shown in the footer of the optional <a href="Sloodle_Menu_Block.html" title="Sloodle Menu Block">Sloodle Menu Block</a>.
+</p>
+<h3> <span class="mw-headline" id="Module_Version"> Module Version </span></h3>
+<p>The "module version" is given in the "version.php" file in the Sloodle source code. It is required for any Moodle module, and indicates the exact date when the module was last changed, and also contains a revision number for that day. It follows this format:
+</p><p>YYYYMMDD##
+</p><p>(The ## is the 2-digit release number, allowing up to 100 releases per day). This number will change quite frequently - whenever there is a change made to the module.
+</p><p>For programmers, the "version.php" file is version-managed by Subversion. Whenever you want to commit a change to the repository, make sure your "version.php" file is totally up-to-date first, then make sure the version number in there is on the right date, and increment the revision number if necessary (unless it is the first revision that day). You <i>must</i> commit the "version.php" file along with all your other changes, in a single commit. (Any additional changes should increment the revision number again).
+</p><p><b>Note:</b> these revision numbers are unrelated to repository revision numbers.
+</p><p><br />
+</p>
+<h1> <span class="mw-headline" id="Current_Version"> Current Version </span></h1>
+<pre>Use the <a href="https://www.sloodle.org/download" title="Download Sloodle">Download Sloodle</a> page to obtain the latest version of the tools.
+</pre>
+<h4> <span class="mw-headline" id="Version_1.2"> Version 1.2 </span></h4>
+<p>Released: 22nd June 2011
+</p><p>Module version: 2009072730+
+</p><p>This release included the SLOODLE Tracker, which was originally developed as a 3rd party extension at the University of Ulster. A stability fix for the Quiz Chair was also included.
+</p><p><br />
+</p>
+<h1> <span class="mw-headline" id="Future_Versions"> Future Versions </span></h1>
+<h4> <span class="mw-headline" id="Version_2.0"> Version 2.0 </span></h4>
+<pre>Planned release date: sometime in 2011
+</pre>
+<p>Module versions: 2010110300+
+</p><p>This will be a major upgrade of the SLOODLE module, providing support for Moodle 2.0, and introducing the LSL API.
+</p><p><br />
+</p>
+<h1> <span class="mw-headline" id="Version_History"> Version History </span></h1>
+<p>These are old versions of SLOODLE which may or may not still be supported. We always recommend upgrading to the latest version.
+</p>
+<h4> <span class="mw-headline" id="Version_1.1"> Version 1.1 </span></h4>
+<p>Released: 26th March 2010
+</p><p>Module versions: 2009072720
+</p><p>This is a minor release to address various concerns related to the 1.0 version. It is designed to be streamlined and more efficient, with unnecessary code removed, and several minor bugs fixed. There are also some other minor improvements.
+</p><p>Note: a very minor point update to this (v1.1.1) was released on 17th April 2010. It resolved a major problem on some servers.
+</p><p><br />
+</p>
+<h4> <span class="mw-headline" id="Version_1.0.2"> Version 1.0.2 </span></h4>
+<p>Released: 12th February 2010
+</p><p>Module versions: 2009072710
+</p><p>This is a minor release containing some security and compatibility updates. These primarily relate to the Presenter module in Moodle, and better-supporting PHP4 and Microsoft operating systems.
+</p><p><br />
+</p>
+<h4> <span class="mw-headline" id="Version_1.0"> Version 1.0 </span></h4>
+<p>Module versions: 2009072706 to 2009072708
+</p>
+<ul><li> Added server-side <a href="SLOODLE_Presenter.html" title="SLOODLE Presenter">Presenter</a> features:
+<ul><li> Bulk upload
+</li><li> Import plugin support (including a PDF importer)
+</li></ul>
+</li><li> Addressed in-world <a href="SLOODLE_Presenter.html" title="SLOODLE Presenter">Presenter</a> issues:
+<ul><li> Made it easier to change media texture
+</li><li> Owner can prevent others from controlling presentation
+</li></ul>
+</li></ul>
+<ul><li> Updated design of the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>
+</li><li> Released <a href="Sloodle_Picture_Gloss.html" title="Sloodle Picture Gloss">PictureGloss</a> tool
+</li><li> Improved <a href="Sloodle_Quiz_Chair.html" title="Sloodle Quiz Chair">Quiz Chair</a> support for numerical and short answer questions
+</li><li> <a href="Sloodle_WebIntercom.html" title="Sloodle WebIntercom">WebIntercom</a> now chats URL of archived discussion when disabled
+</li><li> Added plain English summaries of error messages
+</li><li> Removed <a href="Sloodle_Access_Checker_Door.html" title="Sloodle Access Checker Door">Access Checker Door</a> from <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="Version_0.4"> Version 0.4 </span></h4>
+<ul><li> Postcard - <a href="https://www.sloodle.org/articles/s/l/o/Sloodle_Postcard_Blogger_(Freemail).html" title="Sloodle Postcard Blogger (Freemail)" class="mw-redirect">Sloodle_Postcard_Blogger_(Freemail)</a>
+</li><li> Presenter -
+</li><li> Map -
+</li><li> Stipend Giver -
+</li></ul>
+<h4> <span class="mw-headline" id="Version_0.3"> Version 0.3 </span></h4>
+<ul><li> Made Sloodle module instance-based
+<ul><li> Add Sloodle support to individual courses ('<a href="http__/localhost/sl/index740c.html?title=Sloodle_Controller&amp;action=edit&amp;redlink=1" class="new" title="Sloodle Controller (page does not exist)">Sloodle Controller</a>')
+</li><li> Increased flexibility and control for educators
+</li><li> Add <a href="http__/localhost/sl/index6569.html?title=Sloodle_Distributor_module&amp;action=edit&amp;redlink=1" class="new" title="Sloodle Distributor module (page does not exist)">Sloodle Distributor module</a> to courses as well
+</li></ul>
+</li><li> Added full support for auto-registration and auto-enrolment
+</li><li> Web-based configuration of objects
+</li><li> Added <a href="http__/localhost/sl/indexe737.html?title=User-centric_authorisation&amp;action=edit&amp;redlink=1" class="new" title="User-centric authorisation (page does not exist)">User-centric authorisation</a> concept
+</li><li> Tool improvements:
+<ul><li> Updated <a href="Sloodle_Toolbar.html" title="Sloodle Toolbar">Toolbar</a> to support blog visibilities: public, site, and draft
+</li><li> Updated Layout management in <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a> to support more objects
+</li><li> Improved stability and usability of <a href="Sloodle_Quiz_Chair.html" title="Sloodle Quiz Chair">Quiz Chair</a>
+</li><li> Added option to stop <a href="Sloodle_WebIntercom.html" title="Sloodle WebIntercom">WebIntercom</a> recording your chat
+</li></ul>
+</li><li> New tools
+<ul><li> <a href="http__/localhost/sl/indexf1ec.html?title=Sloodle_PrimDrop&amp;action=edit&amp;redlink=1" class="new" title="Sloodle PrimDrop (page does not exist)">PrimDrop</a>
+</li><li> <a href="Sloodle_Choice.html" title="Sloodle Choice">Choice</a>
+</li><li> <a href="Sloodle_Vending_Machine.html" title="Sloodle Vending Machine">Vending Machine</a> (contains former <a href="Sloodle_Distributor.html" title="Sloodle Distributor" class="mw-redirect">Distributor</a>/<a href="Sloodle_Selector.html" title="Sloodle Selector" class="mw-redirect">Selector</a> functionality)
+</li><li> <a href="Sloodle_Password_Reset.html" title="Sloodle Password Reset">Password Reset</a>
+</li></ul>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="Version_0.21"> Version 0.21 </span></h4>
+<ul><li> Introduced Spanish language pack
+</li><li> Released <a href="http__/localhost/sl/indexc084.html?title=Sloodle_Menu_block&amp;action=edit&amp;redlink=1" class="new" title="Sloodle Menu block (page does not exist)">Sloodle Menu block</a>
+</li><li> Added <a href="http__/localhost/sl/index402a.html?title=Avatar_Management&amp;action=edit&amp;redlink=1" class="new" title="Avatar Management (page does not exist)">Avatar Management</a> tools to module
+</li><li> Improved <a href="Sloodle_Toolbar.html" title="Sloodle Toolbar">Sloodle Toolbar</a>:
+<ul><li> Selectable chat channel
+</li><li> Multi-part blogging
+</li><li> AviLister functionality
+</li><li> Help button
+</li><li> Minimize feature
+</li></ul>
+</li><li> Improved <a href="Registration_and_Enrolment.html" title="Registration and Enrolment">Registration and Enrolment</a> tools:
+<ul><li> Parallelized URL loading
+</li><li> Made registration and enrolment occur in a single step
+</li></ul>
+</li><li> Added server-side support for <a href="Sloodle_Choice.html" title="Sloodle Choice">Sloodle Choice</a> and <a href="http__/localhost/sl/index0d98.html?title=Sloodle_Inventory_Box&amp;action=edit&amp;redlink=1" class="new" title="Sloodle Inventory Box (page does not exist)">Sloodle Inventory Box</a>
+<ul><li> <i>(expecting tool release during lifetime of 0.21!)</i>
+</li></ul>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="Version_0.2"> Version 0.2 </span></h4>
+<ul><li> New communications format (<a href="Communicating_between_server_and_client.html" title="Communicating between server and client">Communicating between server and client</a>)
+</li><li> Released <a href="Sloodle_MetaGloss.html" title="Sloodle MetaGloss">Sloodle MetaGloss</a> in <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>
+</li><li> Released <a href="Sloodle_Distributor.html" title="Sloodle Distributor" class="mw-redirect">Sloodle Distributor</a> and <a href="Sloodle_Selector.html" title="Sloodle Selector" class="mw-redirect">Sloodle Selector</a> in <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>
+</li><li> Implemented <a href="Moodle_Distribution_Interface.html" title="Moodle Distribution Interface">Moodle Distribution Interface</a>
+</li><li> Implemented new object-oriented <a href="Sloodle_PHP_API.html" title="Sloodle PHP API">Sloodle PHP API</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="Version_0.19"> Version 0.19 </span></h4>
+<p>No major changes from previous version. Simply tagged it prior to beginning work on version 0.2.
+</p><p><br />
+</p>
+<h4> <span class="mw-headline" id="Version_0.1"> Version 0.1 </span></h4>
+<p>First tagged-release.
+More info?
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 70/1000000
+Post‐expand include size: 486/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Version_Numbers"><span class="tocnumber">1</span> <span class="toctext">Version Numbers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Sloodle_Version"><span class="tocnumber">1.1</span> <span class="toctext">Sloodle Version</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Module_Version"><span class="tocnumber">1.2</span> <span class="toctext">Module Version</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Current_Version"><span class="tocnumber">2</span> <span class="toctext">Current Version</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Version_1.2"><span class="tocnumber">2.1</span> <span class="toctext">Version 1.2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Future_Versions"><span class="tocnumber">3</span> <span class="toctext">Future Versions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Version_2.0"><span class="tocnumber">3.1</span> <span class="toctext">Version 2.0</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Version_History"><span class="tocnumber">4</span> <span class="toctext">Version History</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Version_1.1"><span class="tocnumber">4.1</span> <span class="toctext">Version 1.1</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Version_1.0.2"><span class="tocnumber">4.2</span> <span class="toctext">Version 1.0.2</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Version_1.0"><span class="tocnumber">4.3</span> <span class="toctext">Version 1.0</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Version_0.4"><span class="tocnumber">4.4</span> <span class="toctext">Version 0.4</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Version_0.3"><span class="tocnumber">4.5</span> <span class="toctext">Version 0.3</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Version_0.21"><span class="tocnumber">4.6</span> <span class="toctext">Version 0.21</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Version_0.2"><span class="tocnumber">4.7</span> <span class="toctext">Version 0.2</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Version_0.19"><span class="tocnumber">4.8</span> <span class="toctext">Version 0.19</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Version_0.1"><span class="tocnumber">4.9</span> <span class="toctext">Version 0.1</span></a></li>
+</ul>
+</li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_Versions by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:51 GMT -->
+</html>
+
+

@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Database_changes by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:00 GMT -->
+<head>
+    <title>Database changes - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p>The following are expected changes we'll have to make in upcoming versions. It's helpful to keep a note of them so we can do them in one go, as database upgrades in Moodle are a big old PITA.
+</p>
+
+<h2> <span class="mw-headline" id="sloodle_users"> sloodle_users</span></h2>
+<ol><li> grid - the grid the avatar is on
+</li><li> hypergrid_uuid
+</li><li> display_name - the latest detected display name of the avatar
+</li></ol>
+<h2> <span class="mw-headline" id="sloodle_layout"> sloodle_layout</span></h2>
+<ol><li> change key on name to name+controller
+</li></ol>
+<h2> <span class="mw-headline" id="sloodle_active_object"> sloodle_active_object </span></h2>
+<ol><li> grid
+</li><li> scale
+</li></ol>
+<h2> <span class="mw-headline" id="sloodle_currency_types"> sloodle_currency_types </span></h2>
+<p>Added in Avatar Classroom feature branch "feature-currency-upgrade" as 2012121907
+</p>
+<ol><li> code - A code to use to match up currencies when importing from backups.
+</li><li> is_shown_to_students - Whether the currency should be displayed in the student's backpack etc or just used behind the scenes.
+</li><li> is_grid_currency - Whether the currency should be used as the in-world currency for the grid (if we build OpenSim money module integration)
+</li><li> scope - round | controller | course | site - How finely-grained the currency handling should be, ie do you get new points for each round, or do your points persist over rounds?
+</li><li> classification - money | points | inventory | statistic - The type of currency
+</li><li> related_prim_name - the name of an in-world object that is related to this currency
+</li><li> max_amount - the highest amount of this currency you can have or 0 for infinite
+</li><li> min_amount - the lowest amount of this currency you can have
+</li></ol>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 15/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#sloodle_users"><span class="tocnumber">1</span> <span class="toctext">sloodle_users</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#sloodle_layout"><span class="tocnumber">2</span> <span class="toctext">sloodle_layout</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#sloodle_active_object"><span class="tocnumber">3</span> <span class="toctext">sloodle_active_object</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#sloodle_currency_types"><span class="tocnumber">4</span> <span class="toctext">sloodle_currency_types</span></a></li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Database_changes by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:00 GMT -->
+</html>
+
+

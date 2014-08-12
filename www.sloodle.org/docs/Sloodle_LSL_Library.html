@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_LSL_Library by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:25 GMT -->
+<head>
+    <title>Sloodle LSL Library - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p>The Linden Scripting Language (LSL) does not contain any facility to include one script within another, or access functions defined elsewhere. Instead, we must rely on either duplicating common code between different scripts, or indirect access to common scripts via link or chat messages.
+</p><p>The Sloodle LSL Library is split into two parts: scripts, and fragments. The scripts are complete scripts which reside in the Sloodle repository (although you can usually also copy them out of other Sloodle objects in-world if you need to). These scripts can normally be used exactly as they are, with little or not customization.
+</p><p>The fragments are usual functions or events (in whole or in part) which provide useful common functionality which you need to copy-and-paste into your own scripts. Sometimes, these can be used as they are, but sometimes they will required that you change to suit your specific requirements.
+</p><p><br />
+</p>
+
+<h2> <span class="mw-headline" id="Scripts"> Scripts </span></h2>
+<p>The scripts themselves can be found in the "<a href="https://www.sloodle.org/articles/l/s/l/Fileref:lsl.html" title="Fileref:lsl">lsl</a>" folder of the Sloodle module, and they are documented in the <a href="Sloodle_module_file_reference.html" title="Sloodle module file reference">Sloodle module file reference</a>. Direct links are provided in the following list:
+</p><p><br />
+<b><a href="https://www.sloodle.org/articles/l/s/l/Fileref:lsl/sloodle_setup_notecard.lsl.html" title="Fileref:lsl/sloodle setup notecard.lsl">sloodle_setup_notecard</a></b><br />
+This script is useful if you need to be able to configure your object using a notecard. It will 'read' each line of the configuration notecard (<a href="Sloodle_config.html" title="Sloodle config">sloodle_config</a>) via link message to other scripts in the same prim, meaning that you do not need to write all of the dataserver handling code yourself.
+</p><p><br />
+<b><a href="https://www.sloodle.org/articles/l/s/l/Fileref:lsl/sloodle_slave_object.lsl.html" title="Fileref:lsl/sloodle slave object.lsl">sloodle_slave_object</a></b><br />
+This script is essential if you want to include your object in the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a> or similar automated rezzing/configuring device, as it will listen for configuration commands via chat messages, and relay them to your script(s) via link messages. As far as your scripts are concerned, it is exactly the same as receiving configuration commands from the <a href="https://www.sloodle.org/articles/l/s/l/Fileref:lsl/sloodle_setup_notecard.lsl.html" title="Fileref:lsl/sloodle setup notecard.lsl">sloodle_setup_notecard</a> script. This script also contains complex security features to prevent other objects from 'hijacking' the configuration process.
+</p><p><br />
+<b><a href="https://www.sloodle.org/articles/l/s/l/Fileref:lsl/sloodle_url_loader.lsl.html" title="Fileref:lsl/sloodle url loader.lsl">sloodle_url_loader</a></b><br />
+The "llLoadURL" function in LSL to give the user a URL to load incurs a long script delay. As such, it is useful to be use this script to off-load the functionality through link messages, allowing your main script(s) to carry on as normal.
+</p><p><br />
+<b><a href="http__/localhost/sl/indexc15f.html?title=Fileref:lsl/sloodle_debug.lsl&amp;action=edit&amp;redlink=1" class="new" title="Fileref:lsl/sloodle debug.lsl (page does not exist)">sloodle_debug</a></b><br />
+If you use the <a href="http__/localhost/sl/indexfdfd.html?title=Sloodle_debug&amp;action=edit&amp;redlink=1" class="new" title="Sloodle debug (page does not exist)">sloodle_debug</a> function (see below) to output debug information via link message, then you will need this script to intercept it and display it on your screen. This combination of methods is very useful as enabling/disabling debug is a matter of running or stopping this debug script -- you do not need to alter your original scripts in any way.
+</p><p><br />
+</p>
+<h2> <span class="mw-headline" id="Fragments"> Fragments </span></h2>
+<p><b>NOTE:</b> if you want to use these LSL functions and fragments, then you must copy-and-paste them directly into your own LSL scripts.
+</p>
+<h3> <span class="mw-headline" id="Functions"> Functions </span></h3>
+<p><b><a href="http__/localhost/sl/indexfdfd.html?title=Sloodle_debug&amp;action=edit&amp;redlink=1" class="new" title="Sloodle debug (page does not exist)">sloodle_debug</a></b><br />
+This function can be used to output debug information. There are different versions depending on your specific requirements. The recommended version uses link messages in conjunction with the <a href="http__/localhost/sl/indexc15f.html?title=Fileref:lsl/sloodle_debug.lsl&amp;action=edit&amp;redlink=1" class="new" title="Fileref:lsl/sloodle debug.lsl (page does not exist)">sloodle_debug</a> script (see above).
+</p><p><br />
+<b><a href="http__/localhost/sl/index680a.html?title=Sloodle_handle_command&amp;action=edit&amp;redlink=1" class="new" title="Sloodle handle command (page does not exist)">sloodle_handle_command</a></b><br />
+When object configuration is automated using <a href="https://www.sloodle.org/articles/l/s/l/Fileref:lsl/sloodle_setup_notecard.lsl.html" title="Fileref:lsl/sloodle setup notecard.lsl">sloodle_setup_notecard</a> or <a href="https://www.sloodle.org/articles/l/s/l/Fileref:lsl/sloodle_slave_object.lsl.html" title="Fileref:lsl/sloodle slave object.lsl">sloodle_slave_object</a>, you need to process the incoming commands. This function provides an example of how to do the processing, although you will sometimes need to change it to suit your own commands.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="States"> States </span></h3>
+<p><b><a href="Sloodle_wait_for_configuration.html" title="Sloodle wait for configuration">sloodle_wait_for_configuration</a></b><br />
+This state is commonly used when an object is required to receive configuration commands via link message. It waits for link messages, dispatches them to the <a href="http__/localhost/sl/index680a.html?title=Sloodle_handle_command&amp;action=edit&amp;redlink=1" class="new" title="Sloodle handle command (page does not exist)">sloodle_handle_command</a> function, and should go to the appropriate state once configuration is complete.
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 19/1000000
+Post‐expand include size: 486/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Scripts"><span class="tocnumber">1</span> <span class="toctext">Scripts</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Fragments"><span class="tocnumber">2</span> <span class="toctext">Fragments</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Functions"><span class="tocnumber">2.1</span> <span class="toctext">Functions</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#States"><span class="tocnumber">2.2</span> <span class="toctext">States</span></a></li>
+</ul>
+</li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_LSL_Library by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:27 GMT -->
+</html>
+
+

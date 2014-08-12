@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_required_param by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:58 GMT -->
+<head>
+    <title>Sloodle required param - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<h2> <span class="mw-headline" id="Declaration"> Declaration </span></h2>
+<p><font size="4"><code><b>function</b> sloodle_required_param($parname, $type)</code></font><br />
+Defined in: <a href="https://www.sloodle.org/articles/f/i/l/File:File.gif.html" class="image"><img alt="File.gif" src="wiki/images/a/2F/a/a/af/File.gif" width="16" height="16" /></a>  <a href="https://www.sloodle.org/articles/l/i/b/Fileref:lib/sl_iolib.php.html" title="Fileref:lib/sl iolib.php">lib/sl_iolib.php</a> <br />
+</p><p><br />
+</p>
+<h2> <span class="mw-headline" id="Summary"> Summary </span></h2>
+<p>This function provides a Sloodle-friendly alternative to the moodle "required_param" funtion. It will fetch an HTTP request parameter of the name specified in parameter <i>$parname</i>, and parse/clean it as type <i>$type</i>. If successful, it will return the value directly. However, if it fails, it will terminate the script with an LSL-friendly error message (unlike the Moodle function, which renders an HTML error message). For a fuller discussion on why we need to strip the standard Moodle HTML away, see the <a href="Linker_Script.html" title="Linker Script">Linker Script</a> page.
+</p>
+<ul><li> <b>Note:</b> this is a global-function alternative to the member-function version found in the <a href="SloodleLSLRequest.html" title="SloodleLSLRequest">SloodleLSLRequest</a> class. You can use this function if you do not have a <a href="SloodleLSLRequest.html" title="SloodleLSLRequest">SloodleLSLRequest</a> object available. Otherwise, it is recommended that you use the member function version instead.
+</li></ul>
+<p><br />
+</p>
+<h2> <span class="mw-headline" id="See_Also"> See Also </span></h2>
+<ul><li> <a href="SloodleLSLRequest.html#required_param.28.24parname.2C_.24type.3DPARAM_RAW.29" title="SloodleLSLRequest">SloodleLSLRequest::required_param(..)</a>
+</li></ul>
+<p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 21/1000000
+Post‐expand include size: 557/2097152 bytes
+Template argument size: 47/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_required_param by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:58 GMT -->
+</html>
+
+

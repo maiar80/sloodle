@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/SLOODLE_LSL_API by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:28 GMT -->
+<head>
+    <title>SLOODLE LSL API - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p><i> This page describes an API that is currently undergoing significant development. Information on this page may be inaccurate, and API calls may be renamed, added or deleted during development of the API. We hope developers will experiment with the API, and suggest improvements </i>
+</p>
+<h3> <span class="mw-headline" id="Sloodle_API"> Sloodle API </span></h3>
+<p>Imagine being able to access the power the MOODLE Learning Management System live on a webserver directly through your LSL code.  Well, now you can!
+This is the beginning of an API to enable LSL developers to access data from the MOODLE LMS without having to have any prior knowledge to MOODLE coding.
+To get started, download and install the SLOODLE 1.1 branch here: <a rel="nofollow" class="external autonumber" href="http://code.google.com/p/sloodle/source/browse/branches/1.0-with-lsl-api/">[1]</a>
+</p><p>Once installed, you need the in your Object to get going.
+</p>
+<ol><li> <a rel="nofollow" class="external text" href="http://code.google.com/p/sloodle/source/browse/branches/1.1/sloodle/lsl/sloodle_setup_notecard.lsl%7C">sloodle_setup_notecard</a>
+</li><li> <a rel="nofollow" class="external text" href="http://code.google.com/p/sloodle/source/browse/branches/1.1/sloodle/lang/en_utf8/sloodle_translation_en.lsl%7C">sloodle_transation_en</a>
+</li><li> <a rel="nofollow" class="external text" href="http://code.google.com/p/sloodle/source/browse/branches/1.1/sloodle/mod/hq-1.0/lsl/_sloodle_api.lsl%7C">_sloodle_api.lsl</a>
+</li></ol>
+<p>You'll also need to generate a sloodle_config notecard. You can do this by creating a "Controller activity" in your MOODLE course.
+Once created, click on the controller activity, choose "Sloodle API HQ"
+Then choode "Generate notecard"
+Copy all the text, and paste it into a notecard in SL called "sloodle_config"
+</p><p>Once these scripts are in your object, you can use the commands below to access MOODLE data.
+</p><p>The _sloodle_api.lsl script listens on channel 998822, and responds on channel 998821.
+You can copy the declarations below and paste them in your code if you like.
+</p><p><b><font color="green">integer</font>PLUGIN_RESPONSE_CHANNEL                                =998822; <font color="orange">//sloodle_api.lsl responses</font></b>
+</p><p><b><font color="green">integer</font>PLUGIN_CHANNEL                                                    =998821;<font color="orange">//sloodle_api requests</font></b>
+</p><p>These channels can be changed if you edit the _sloodle_api.lsl script directly
+</p><p>In the list below, you will see the current list of linked messages that are part of the sloodle api
+</p>
+<table style="font-weight:bold;" border="1" cellpadding="5" cellspacing="0">
+
+
+
+<tr style="text-align: center;">
+<td> <a rel="nofollow" class="external text" href="http://code.google.com/p/sloodle/source/browse/branches/1.0-with-lsl-api/sloodle/mod/hq-1.0/plugin/user.php">user.php</a>
+</td>
+<td> <a rel="nofollow" class="external text" href="http://code.google.com/p/sloodle/source/browse/branches/1.0-with-lsl-api/sloodle/mod/hq-1.0/plugin/awards.php">awards.php</a>
+</td>
+<td> <a rel="nofollow" class="external text" href="http://code.google.com/p/sloodle/source/browse/branches/1.0-with-lsl-api/sloodle/mod/hq-1.0/plugin/general.php">general.php </a>
+</td>
+<td> <a rel="nofollow" class="external text" href="http://code.google.com/p/sloodle/source/browse/branches/1.0-with-lsl-api/sloodle/mod/hq-1.0/plugin/general.php">lessons.php </a>
+</td>
+<td> <a rel="nofollow" class="external text" href="http://code.google.com/p/sloodle/source/browse/branches/1.0-with-lsl-api/sloodle/plugin/groups/groups.php">groups.php</a>
+</td></tr>
+<tr>
+<td><a href="GetClassList.html" title="GetClassList">getClassList</a>
+</td>
+<td><a href="MakeTransaction.html" title="MakeTransaction">makeTransaction</a>
+</td>
+<td><a href="GetSloodleObjects.html" title="GetSloodleObjects">getSloodleObjects</a>
+</td>
+<td><a href="GetLessons.html" title="GetLessons">getLessons</a>
+</td>
+<td><a href="GetUsersGrps.html" title="GetUsersGrps">getUsersGrps</a>
+</td></tr>
+<tr>
+<td><a href="GetAwardGrpMbrs.html" title="GetAwardGrpMbrs">getAwardGrpMbrs</a>
+</td>
+<td><a href="GetAwardGrps.html" title="GetAwardGrps">getAwardGrps</a>
+</td>
+<td>
+</td>
+<td><a href="GetLessonPages.html" title="GetLessonPages">getLessonPages</a>
+</td>
+<td><a href="GetGrps.html" title="GetGrps">getGrps</a>
+</td></tr>
+<tr>
+<td><a href="AddGrpMbr.html" title="AddGrpMbr">addGrpMbr</a>
+</td>
+<td><a href="AddAwardGrp.html" title="AddAwardGrp">addAwardGrp</a>
+</td>
+<td>
+</td>
+<td><a href="GetLessonAnswers.html" title="GetLessonAnswers">getLessonAnswers</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="RemoveGrpMbr.html" title="RemoveGrpMbr">removeGrpMbr</a>
+</td>
+<td><a href="RemoveAwardGrp.html" title="RemoveAwardGrp">removeAwardGrp</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td><a href="GetTeamScore.html" title="GetTeamScore">getTeamScore</a>
+</td>
+<td><a href="GetTeamScores.html" title="GetTeamScores">getTeamScores</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>
+</td>
+<td><a href="GetAwards.html" title="GetAwards">getAwards</a>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>
+</td>
+<td><a href="RegisterScoreboard.html" title="RegisterScoreboard">registerScoreboard</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>
+</td>
+<td><a href="DeregisterScoreboard.html" title="DeregisterScoreboard">deregisterScoreboard</a>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></table>
+<p>To add more commands to the above list.  The developer simply needs to create another .php file, and save it as:
+<b><a rel="nofollow" class="external free" href="http://yoursite.com/moodle/mod/sloodle/mod/hq-1.0/plugins/yourplugin.php">http://yoursite.com/moodle/mod/sloodle/mod/hq-1.0/plugins/yourplugin.php</a></b>
+</p>
+<pre>/*********************************************
+*  Copyright (c) 2009 yourname
+*  Released under the GNU GPL 3.0
+*  This script can be used in your scripts, but you must include this copyright header as per the GPL Licence 
+*  For more information about GPL 3.0 - see: <a rel="nofollow" class="external free" href="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</a>
+*  This script is part of the SLOODLE Project see <a rel="nofollow" class="external free" href="http://sloodle.org/">http://sloodle.org</a>
+*
+* example_plugin.lsl
+*  Copyright:
+*  yourname
+*  youremail
+* 
+* 
+*/
+integer PLUGIN_RESPONSE_CHANNEL                                =998822; //sloodle_api.lsl responses
+integer PLUGIN_CHANNEL                                                    =998821;//sloodle_api requests
+
+default {
+   state_entry() {
+       llOwnerSay("Example Plugin.  All commands sent to the _sloodle.api script go on channel 998822.\nAll responses come in on 998821");
+   }//end state_entry
+
+   touch_start(integer num_detected) {
+   	llMessageLinked(LINK_SET, PLUGIN_CHANNEL, "PLUGIN:user,FUNCTION:getClassList\nAWARDID:"+(string)104+"\nSENDERUUID:"+(string)llGetOwner()+"|INDEX:0|SORTMODE:balance", NULL_KEY);
+   }//end touch
+
+   link_message(integer sender_num, integer channel, string str, key id) {
+   	if (channel==PLUGIN_RESPONSE_CHANNEL){
+   		llOwnerSay(str);
+   	}
+   }//end link_message
+
+}//end state
+</pre>
+<!-- 
+NewPP limit report
+Preprocessor node count: 7/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/SLOODLE_LSL_API by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:33 GMT -->
+</html>
+
+

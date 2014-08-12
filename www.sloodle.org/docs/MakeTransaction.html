@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/MakeTransaction by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:00 GMT -->
+<head>
+    <title>MakeTransaction - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<table border="0" cellpadding="0" cellspacing="0" style="text-align: top; width: 95%;">
+
+<tr>
+<td> <a href="SLOODLE_LSL_API.html" title="SLOODLE LSL API">Back to Sloodle API</a>
+</td></tr></table>
+<p><br />
+</p>
+<table border="2" cellpadding="0" cellspacing="0" style="text-align: top; width: 95%; color:#5a3696; border-color:black;">
+
+<tr>
+<td>
+<table border="0" style="width: 100%; background:#f4f8fb; color:#5a3696; font-weight:bold; font-size:180%;">
+
+<tr>
+<td>Function: makeTransaction
+</td></tr></table>
+</td></tr>
+<tr>
+<td>
+<table border="0">
+
+<tr>
+<td style="width: 10%; font-weight:bold;"> Description:
+</td>
+<td style="width: 90%;"> makes a transaction for the user to the current award
+</td></tr></table>
+</td></tr>
+<tr>
+<td>
+<table border="0">
+
+<tr>
+<td style="width: 10%; font-weight:bold;"> llMessageLinked:
+</td>
+<td style="width: 90%; font-weight:bold;">
+<pre>           <font color="orange">//plugin:awards refers to awards.php in sloodle/mod/hq-1.0/plugins/awards.php</font>              
+           <font color="green">string</font> plugin = <font color="green">plugin:awards,function:makeTransaction\nAWARDID:</font>+(<font color="green">string</font>)currentAwardId+"<font color="green">\n</font>";
+           <font color="orange">//data is the data we'll pass to the makeTransaction function in awards.php</font>
+           <font color="green">string</font> data      = <font color="green">"SOURCE_UUID:"</font>+(<font color="green">string</font>)owner;
+           data             += <font color="green">"|AVUUID:"</font>+((<font color="green">string</font>)avuuid;
+           data             += <font color="green">"|AVNAME:"</font>+avname;
+           data             += <font color="green">"|POINTS:"</font>+(<font color="green">string</font>)points;                
+           data             += <font color="green">"|DETAILS:owner%20modify%20ipoints,OWNER:"</font>+<font color="red">llEscapeURL</font>(<font color="red">llKey2Name</font>(owner))+<font color="green">",SCOREBOARD:"</font>+(<font color="green">string</font>)llGetKey()+",SCOREBOARDNAME:"+llGetObjectName();
+           <font color="orange">//send the plugin function request via the plugin_channel</font>
+           <font color="red">llMessageLinked</font>(<font color="green">LINK_SET</font>, PLUGIN_CHANNEL, plugin+data, <font color="green">NULL_KEY</font>);     
+</pre>
+</td></tr></table>
+</td></tr>
+<tr>
+<td>
+<table border="0">
+
+<tr>
+<td style="width: 10%; font-weight:bold;" colspan="2"> Parameters:
+</td></tr>
+<tr>
+<td style="width: 10%; color:green;"> <b>SOURCE_UUID:</b>
+</td>
+<td style="width: 90%;">  uuid of object or user issuing command
+</td></tr>
+<tr>
+<td style="width: 10%; color:green;"> <b>MODULE_ID:</b>
+</td>
+<td style="width: 90%;">  sloodleid of award activity
+</td></tr>
+<tr>
+<td style="width: 10%; color:green;"> <b>AVUUID</b>:
+</td>
+<td style="width: 90%;">  avatar who we are making a transaction for
+</td></tr>
+<tr>
+<td style="width: 10%; color:green;"> <b>AVNAME</b>:
+</td>
+<td style="width: 90%;">  avatar name who we are making a transaction for
+</td></tr>
+<tr>
+<td style="width: 10%; color:green;"> <b>POINTS</b>:
+</td>
+<td style="width: 90%;">  The value of the transaction
+</td></tr>
+<tr>
+<td style="width: 10%; color:green;"> <b>DETAILS</b>:
+</td>
+<td style="width: 90%;">  Any special details you'd like to insert in the sloodle_awards_trans table for this transaction.  This field can be useful for later parsing of the db
+</td></tr></table>
+<p><br />
+</p>
+</td></tr>
+<tr>
+<td>
+<table border="0">
+
+<tr>
+<td style="width: 10%; font-weight:bold;"> Output:
+</td>
+<td style="width: 90%;"> <a href="https://www.sloodle.org/articles/m/a/k/File:MakeTrans.jpg.html" class="image"><img alt="MakeTrans.jpg" src="wiki/images/2/2F/2/2/22/MakeTrans.jpg" width="304" height="65" /></a>
+</td></tr></table>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 24/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/MakeTransaction by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:01 GMT -->
+</html>
+
+

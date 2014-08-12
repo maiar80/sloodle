@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_Cron_Job by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:37:13 GMT -->
+<head>
+    <title>Sloodle Cron Job - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.3, 0.4, 1.0+" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.3, 0.4, 1.0+</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<h3> <span class="mw-headline" id="What_is_a_cron_job.3F"> What is a cron job? </span></h3>
+<p>A cron job is simply a task which runs on a regular basis on your server. In the case of Moodle, it should regularly run the 'admin/cron.php' script, which will handle various regular tasks, such as emailing notifications and forum posts to course members. You can find out more about setting up your Moodle cron job from the <a rel="nofollow" class="external text" href="http://docs.moodle.org/en/Cron">documentation at Moodle.org</a>.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="How_does_Sloodle_use_it.3F"> How does Sloodle use it? </span></h3>
+<p>As of Sloodle 0.3, the Moodle cron job will also execute some code in the Sloodle module (as such, if you already have your Moodle cron job setup, then there is nothing else to do). Sloodle primarily uses it to clear out old data, to prevent the database from becoming unnecessarily overcrowded:
+</p><p><br />
+</p>
+<ul><li> <b>Purge pending avatar entries</b> -- if an avatar in Second Life attempted to <a href="Registration_and_Enrolment.html" title="Registration and Enrolment">register</a> their avatar with your Moodle site using a registration object in-world, but never finished the process (i.e. never logged-in to Moodle), then their avatar details will be taking up unnecessary space in the database. Entries which are more than 30 minutes old will be removed by the cron job.
+</li></ul>
+<ul><li> <b>Purge expired LoginZone allocations</b> -- if a Moodle user attempted to <a href="Registration_and_Enrolment.html" title="Registration and Enrolment">register</a> their avatar with your Moodle site using a course <a href="Sloodle_LoginZone.html" title="Sloodle LoginZone">LoginZone</a>, but never completed the process (i.e. never teleported to the location in Second Life), then their allocated position in the LoginZone will be taking up unnecessary space in the database, and will reduce the available locations for other users. Entries which are more than 15 minutes old will be removed by the cron job.
+</li></ul>
+<ul><li> <b>Purge unauthorised course/user objects</b> -- if a user begins trying to <a href="Object_Authorisation.html" title="Object Authorisation" class="mw-redirect">authorise</a> a Sloodle object for your Moodle site, but does not complete the process, then the object's details will be taking up unecessary space in the database. Entries which are more than 1 hour old will be removed by the cron job. (This applies
+</li></ul>
+<ul><li> <b>Purge expired course/user objects</b> -- any <a href="Object_Authorisation.html" title="Object Authorisation" class="mw-redirect">authorised</a> object which has not been used or rezzed for a period of time will be automatically deleted by the cron job. This prevents the database getting overcrowded with objects, and reduces any security risk of old objects being maliciously used. The period of time before expiry can be customized by a Moodle administrator in the Sloodle module configuration. (Note: expired objects can easily be re-authorised by anybody with teacher status or higher).
+</li></ul>
+<ul><li> <b>Dispatch login notifications</b> -- if an avatar is <a href="Auto_registration-2.html" title="Auto registration" class="mw-redirect">auto registered</a> on your Moodle site while using some Sloodle object, their automatically-generated login details are temporarily stored until the cron job dispatches them into Second Life via email. This feature is experimental though, and not essential, as the <a href="Sloodle_Password_Reset.html" title="Sloodle Password Reset">Sloodle Password Reset</a> object can be used to generate a new password for auto-registered users, without relying on the cron job or email system.
+</li></ul>
+<p><br />
+</p>
+<h3> <span class="mw-headline" id="Where_is_it.3F"> Where is it? </span></h3>
+<p>The Sloodle cron function is called "sloodle_cron()", and can be found in the "lib.php" file in the root of the Sloodle module folder. <b>Note:</b> this function cannot be renamed or moved to another file, nor can lib.php itself be moved/renamed, otherwise the Moodle framework will be unable to find it.
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 24/1000000
+Post‐expand include size: 851/2097152 bytes
+Template argument size: 28/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_Cron_Job by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:37:13 GMT -->
+</html>
+
+

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Separating_data_into_pages by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:38 GMT -->
+<head>
+    <title>Separating data into pages - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<h2> <span class="mw-headline" id="Proposal_for_separating_data_into_pages"> Proposal for separating data into pages </span></h2>
+<p>Edmund Edgar, 2007-09-03
+</p><p>Sometimes data we want to fetch from Moodle is too long to be handled by a single script's available memory.
+</p><p>To get around this problem, we will split responses to requests from LSL scripts into pages.
+</p><p>By default, a page will be 2048 bytes long. However, if multi-byte characters span the 2048-byte boundary, the page size returned will be reduced to the nearest whole character.
+</p><p>If an optional argument called sloodlepagesize is passed by the client as a GET or POST argument, a page of the specified size (in bytes) will be used instead.
+</p><p>If an optional argument called sloodlepageresponseid is passed by the client as a GET or POST argument, data from that page response will be used. If data from that page response is not available, an error will be returned. [TODO: Specify this and other errors and put them in the error codes list]
+</p><p>If an optional argument called sloodlepagestart is passed by the client as a GET or POST argument, the response starting at that byte number will be returned.
+</p><p>When a request is made whereby the response has to be split into pages, the server will return the following information in its header:
+- The ID of the response.
+- The number of the first byte returned.
+- The number of bytes being returned.
+- The number of bytes remaining.
+NB. This differs from my original proposal of using numbered pages. Using numbers of bytes works better because
+a) it allows scripts to vary the page size depending on available memory.
+b) it allows pages to be slightly smaller to avoid breaking multi-byte characters.
+</p><p>The server will save the entire reponse in a dedicated database table called prefix_sloodle_page_responses, with a unique ID for each response. This means that even if the content of the data returned has changed between page requests, the server will continue to provide data that was current at the time of the original request. 
+</p><p>TODO: Figure out if there's some point where we can delete this data.
+</p><p>TODO: Figure out what to do on the client side - split this into a different script or what...
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 2/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Separating_data_into_pages by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:38 GMT -->
+</html>
+
+

@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_Object_Selector by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:56 GMT -->
+<head>
+    <title>Sloodle Object Selector - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+
+<h1> <span class="mw-headline" id="Summary"> Summary </span></h1>
+<p>The Object Selector was introduced in <a href="Sloodle_Versions.html#Version_0.2" title="Sloodle Versions">Sloodle 0.2</a>, and can be rezzed from a <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a> (versions 0.702 and later). It allows in-world control of the <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Sloodle Object Distributor</a>.
+</p><p>The Object Selector was removed in version 0.3 of SLOODLE as its features were folded into the <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Sloodle Object Distributor</a>.
+</p>
+<h1> <span class="mw-headline" id="Compatibility">Compatibility</span></h1>
+<p>The Object Selector is a sub-component of the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>, so please check the <a href="Sloodle_Set.html#Compatibility" title="Sloodle Set">Sloodle Set Compatibility</a> information.
+</p><p><br />
+</p>
+<h1> <span class="mw-headline" id="Setup"> Setup </span></h1>
+<h3> <span class="mw-headline" id="Automatic_Configuration"> Automatic Configuration </span></h3>
+<p>The Object Selector is distributed as part of the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>. It is recommended that you use the official Sloodle.org Object Distributor to obtain an appropriate Set for your Sloodle version. Rez and configure the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>, and click on the object vendor box (the tall one in the middle). Select the "Object Selector" option from the dialog that appears, and an Object Selector should be rezzed for you.
+</p><p>The <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a> will automatically configure the Object Selector for you, so it should be ready to use.
+</p><p><b>NOTE:</b> You can have as many Object Selectors as you like, but only a single <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Sloodle Object Distributor</a> for any one site at any one time. The Selector exists to allow access to the Distributor from potentially any location in-world.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Notecard_Configuration"> Notecard Configuration </span></h3>
+<p>As with many Sloodle objects, if you prefer you can configure the Object Selector manually using a notecard. It uses the same format as the '<a href="Sloodle_config.html" title="Sloodle config">sloodle_config</a>' notecard for a <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>, so you can use the <a href="Sloodle_notecard_setup_page-2.html" title="Sloodle notecard setup page" class="mw-redirect">Sloodle notecard setup page</a> on your Moodle site to generate one (if you are an administrator). The text from there should be placed into a notecard called "sloodle_config" in the Object Selector's inventory.
+</p><p>Currently, there is no automatic way to reset the Selector if you change the configuration notecard. <i>Before</i> replacing the configuration notecard, go into the Selector's inventory, and manually reset the "sloodle_object_selector" script. When you replace the notecard now, the Selector should detect the change. Hopefully, a "Reset" option will be made available in the menu if the Selector's owner touches it.
+</p><p>Notecard configuration is useful because:
+</p>
+<ul><li> it will not lose its configuration when it is reset
+</li><li> it does not require the use of a <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a> every time
+</li><li> it can be slightly more secure than automatic configuration
+</li></ul>
+<p><br />
+</p>
+<h1> <span class="mw-headline" id="Usage"> Usage </span></h1>
+<p><i><u>Any</u> avatar can request objects from the Object Selector, so ensure that there is no sensitive information there.</i>
+</p><p>When the Object Selector is rezzed and configured, it will display the address of the Moodle site it is configured to use. A user must touch the Selector in order to use it, at which point it will attempt to retrieve a list of available objects from Moodle. If the list is unavailable (e.g. there are no objects, or there is no <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Distributor</a>), then it will report an error and revert back to waiting.
+</p><p>Otherwise, a menu showing a list of up to 12 objects will be displayed (12 is the maximum which can be displayed... additional ones are ignored). When the user selects an object from the menu, the Selector will notify the Moodle site, which will attempt to contact the Distributor. The success or failure will be reported to the user, and the Selector will revert back to it's 'ready' state.
+</p><p>The final distribution phase may fail if the Moodle site thinks there is a Distributor, but finds that it has actually been shutdown/deleted.
+</p><p><br />
+Note that only one avatar can use the Selector at one time.
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 26/1000000
+Post‐expand include size: 486/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Compatibility"><span class="tocnumber">2</span> <span class="toctext">Compatibility</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Setup"><span class="tocnumber">3</span> <span class="toctext">Setup</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Automatic_Configuration"><span class="tocnumber">3.1</span> <span class="toctext">Automatic Configuration</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Notecard_Configuration"><span class="tocnumber">3.2</span> <span class="toctext">Notecard Configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Usage"><span class="tocnumber">4</span> <span class="toctext">Usage</span></a></li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_Object_Selector by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:56 GMT -->
+</html>
+
+

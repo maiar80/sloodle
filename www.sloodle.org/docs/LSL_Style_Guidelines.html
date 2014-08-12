@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/LSL_Style_Guidelines by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:56 GMT -->
+<head>
+    <title>LSL Style Guidelines - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p>These are proposed guidelines for how we should standardize our LSL coding, loosely based on a combination of the Second Life Style Guide here:
+<a rel="nofollow" class="external free" href="http://lslwiki.net/lslwiki/wakka.php?wakka=Styleguide">http://lslwiki.net/lslwiki/wakka.php?wakka=Styleguide</a>
+...and the Moodle guidelines here:
+<a rel="nofollow" class="external free" href="http://docs.moodle.org/en/Coding">http://docs.moodle.org/en/Coding</a>
+</p><p>Currently our code does not particularly follow these guidelines, or any others...
+</p>
+
+<h2> <span class="mw-headline" id="Functions"> Functions </span></h2>
+<ul><li> Function names use lower_case_separated_with_underscores.
+</li><li> Functions that will be shared (ie. duplicated) between different sloodle scripts should be prefixed sloodle_ (eg. sloodle_my_function) and documented on the <a href="Shared_LSL_functions.html" title="Shared LSL functions">Shared LSL functions</a> page.
+</li></ul>
+<h2> <span class="mw-headline" id="Variables"> Variables </span></h2>
+<ul><li> Variable names (except for constants) should be all-lowercase, without underscores, like Moodle.
+</li><li> Constants should be UPPER_CASE_SEPARATED_BY_UNDERSCORES, like Moodle.
+</li><li> Wherever possible, the same variable names used in Moodle scripts should be used in LSL scripts. These should also be the names of parameters used to pass data to Moodle.
+</li><li> Unlike Moodle, global variables in LSL scripts should not be upper-case. (This is because if passed to a Moodle PHP script, they will probably not be global in the Moodle script.) 
+</li><li> Unlike normal LSL best practice, global variables (other than constants) won't be specially marked as such by putting them in capitals or prefixing them with "g". (Also because they're probably not going to be global in Moodle PHP scripts.)
+</li><li> Variable names don't tell you what kind of variable you're using, so we don't use things like integermyvariable - unless you have two variables that mean the same thing but are different types.
+</li><li> Variables which have the same meaning in a number of different sloodle objects are prefixed with sloodle (variables), or SLOODLE_ (constants). Their meanings should be documented on the <a href="Sloodle_variables.html" title="Sloodle variables">Sloodle variables</a> page.
+</li><li> Global constants defining channels begin with SLOODLE_CHANNEL_AVATAR_CHAT, SLOODLE_CHANNEL_AVATAR_DIALOG, SLOODLE_CHANNEL_OBJECT_CHAT, etc. Their meanings and values should be documented on the <a href="Sloodle_channels.html" title="Sloodle channels">Sloodle channels</a> page. Other families of related constants should follow a similarly predictable naming scheme.
+</li></ul>
+<h2> <span class="mw-headline" id="Indentation"> Indentation </span></h2>
+<ul><li> Indent using tabs, as per the LSL style guidelines.
+</li></ul>
+<h2> <span class="mw-headline" id="Brackets"> Brackets </span></h2>
+<ul><li> Always enclose blocks in curly brackets, as per the LSL guidelines.
+</li><li> Opening brackets for functions and states should start on the line after the function / state declaration. Otherwise, start on the same line.
+</li></ul>
+<h2> <span class="mw-headline" id="Permissions"> Permissions </span></h2>
+<ul><li> All objects and LSL scripts should be fully copyable and modifyable.
+</li></ul>
+<p>TODO: Specify which checkboxes you need to check in SL to accomplish this.
+</p>
+<ul><li> Possible exception: If prim-passwords are still to be used, educators will need to redistribute no-mod scripts (but will need access to full perm scripts). We do hope to phase out the need for prim-passwords, however. <a href="https://www.sloodle.org/articles/d/a/n/User:Daniel.html" title="User:Daniel">Daniel</a>
+</li></ul>
+<h2> <span class="mw-headline" id="Example"> Example </span></h2>
+<p>TODO: Write an example script demonstrating all of the above.
+</p><p>Edmund Edgar, 2007-06-06
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Functions"><span class="tocnumber">1</span> <span class="toctext">Functions</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Variables"><span class="tocnumber">2</span> <span class="toctext">Variables</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Indentation"><span class="tocnumber">3</span> <span class="toctext">Indentation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Brackets"><span class="tocnumber">4</span> <span class="toctext">Brackets</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Permissions"><span class="tocnumber">5</span> <span class="toctext">Permissions</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Example"><span class="tocnumber">6</span> <span class="toctext">Example</span></a></li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/LSL_Style_Guidelines by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:56 GMT -->
+</html>
+
+

@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Classroom by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:38 GMT -->
+<head>
+    <title>Classroom - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<table style="border:solid 2px red; background-color:#ffffff; width:100%; font-style:italic; color:red;">
+<tr>
+<th> This <a href="Sloodle.html" title="Sloodle" class="mw-redirect">Sloodle</a> article is <i>deprecated</i>. It is probably out of date and will not be updated. It continues to exist only for reference purposes.
+</th></tr></table>
+<p><br />
+The Sloodle Classroom is an area where access is controlled for avatars coming in and out.
+</p><p>This object has been renamed the <a href="Sloodle_Access_Checker.html" title="Sloodle Access Checker">Sloodle Access Checker</a>, since all it does at the moment is check access to the course - Edmund, 2007-07-06
+</p><p>(In the future it will probably do much more than this...)
+</p>
+
+<h3> <span class="mw-headline" id="Part_A">Part A</span></h3>
+<p><i>Checks if it knows who the avatar is.</i>
+</p>
+<ul><li> If the avatar is already registered in Sloodle, it goes straight to (B).
+</li></ul>
+<ul><li> If the avatar isn't yet registered in Sloodle, it will do one of the following, depending on how the administrator has setup your Sloodle module:
+</li></ul>
+<h4> <span class="mw-headline" id="Step_1">Step 1</span></h4>
+<ul><li> If auto-registration is switched off (this is the default), it gives the avatar a URL to click to open a web page which will tell Moodle who they are.
+</li></ul>
+<ul><li> If they are not currently logged in, they will need to login to Moodle, or register there if they do not yet have an account. In most cases, once they have completed the login/registration process, they will be taken automatically to the page which tells Moodle who their avatar is.
+</li></ul>
+<p>Note: Some Moodle sites require new users to confirm their e-mail address by clicking a link in an e-mail. In this case, they will not be automatically brought back to the avatar-registration page.
+</p>
+<h4> <span class="mw-headline" id="Step_2">Step 2</span></h4>
+<ul><li> If auto-registration is switched on, a new Moodle user will be created automatically using the avatar's name and Second Life e-mail address.
+</li></ul>
+<ul><li> Currently, although a password is automatically generated for users like this, but it is not sent to the user, so they will be unable to login to Moodle on the web.
+</li></ul>
+<h3> <span class="mw-headline" id="Part_B">Part B</span></h3>
+<p><i>Checks if the avatar is signed up for the course.</i>
+</p>
+<ul><li> If the user is enrolled on the course, the Sloodle Classroom will welcome them to class.
+</li></ul>
+<ul><li> If the user is not enrolled on the course but enrollment for that course is permitted, the Sloodle Classroom will tell them that they need to signup for the course.
+</li></ul>
+<ul><li> If the user is not enrolled on the course and the course does not allow them to enrol themselves, the Sloodle Classroom will tell them.
+</li></ul>
+<p>Note: At this point it would be technically possible to enforce access to the class. The Sloodle Classroom could either push the avatar away, force them off the land or teleport them home. Currently, it does not do any of those things.
+</p><p><br /> 
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 22/1000000
+Post‐expand include size: 739/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Part_A"><span class="tocnumber">1</span> <span class="toctext">Part A</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Step_1"><span class="tocnumber">1.1</span> <span class="toctext">Step 1</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Step_2"><span class="tocnumber">1.2</span> <span class="toctext">Step 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Part_B"><span class="tocnumber">2</span> <span class="toctext">Part B</span></a></li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Classroom by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:38 GMT -->
+</html>
+
+

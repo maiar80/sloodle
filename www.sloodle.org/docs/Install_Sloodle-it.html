@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Install_Sloodle-it by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:20 GMT -->
+<head>
+    <title>Install Sloodle-it - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<table style="background-color:light-gray; margin-left:0px; margin-top:10px; margin-bottom:10px;">
+
+<tr>
+<td>Languages:
+</td>
+<td> <a href="Install_Sloodle.html" title="Install Sloodle">English</a> | <a href="http__/localhost/sl/index60ad.html?title=Install_Sloodle-es&amp;action=edit&amp;redlink=1" class="new" title="Install Sloodle-es (page does not exist)">Español</a> | <a href="http__/localhost/sl/index92ee.html?title=Install_Sloodle-fr&amp;action=edit&amp;redlink=1" class="new" title="Install Sloodle-fr (page does not exist)">Français</a> | <strong class="selflink">Italiano</strong> | <a href="http__/localhost/sl/indexf7f1.html?title=Install_Sloodle-pl&amp;action=edit&amp;redlink=1" class="new" title="Install Sloodle-pl (page does not exist)">Polski</a> | <a href="http__/localhost/sl/index8aa9.html?title=Install_Sloodle-pt&amp;action=edit&amp;redlink=1" class="new" title="Install Sloodle-pt (page does not exist)">Português</a> | <a href="Install_Sloodle-ja.html" title="Install Sloodle-ja">日本語</a>
+</td></tr></table>
+<p>Scarica sloodle <a href="https://www.sloodle.org/download" title="Download Sloodle">Download Sloodle</a> se non l'hai già fatto.
+</p>
+
+<h1> <span class="mw-headline" id="Accedi_alla_tua_installazione_Moodle"> Accedi alla tua installazione Moodle  </span></h1>
+<ul><li> <b>Usando FTP</b>: Molto probabilmente hai bisogno di un software FTP come ad esempio <a rel="nofollow" class="external text" href="http://filezilla-project.org/">FileZilla</a>, Dreamweaver o Fugu
+</li><li> <b>Se lavori localmente</b>: Se il tuo Moodle è installato sul tuo PC locale, apri semplicemente un gestore dei file di sistema (e.g. "???Sistema" su Windows)
+</li><li> <b>Usendo gli strumenti del tuo provider</b>: Fornitori di siti come Dreamhost, Bluehost o Freehostia offrono dei pannelli di controllo basati su pagine web per accedere ai file
+</li></ul>
+<h1> <span class="mw-headline" id="Ordina_le_cartelle_unzippate_dal_file_di_installazione_sloodle"> Ordina le cartelle unzippate dal file di installazione sloodle </span></h1>
+<p>L'installazione Sloodle contiene 3 cartelle separate. Queste devono essere installate in posti diversi della struttura di cartelle di Moodle.
+</p>
+<ol><li> <b>sloodle</b> è un "modulo di attività" di Moodle ed è obbligatorio
+</li><li> <b>sloodle_menu</b> è un "blocco" di Moodle
+</li><li> <b>sloodleobject</b> è un "estensione di compiti" di Moodle
+</li></ol>
+<h1> <span class="mw-headline" id="Installa_il_Modulo_Sloodle"> Installa il Modulo Sloodle </span></h1>
+<div class="thumb tright"><div class="thumbinner" style="width:177px;"><a href="https://www.sloodle.org/articles/m/o/o/File:MoodleFiles.jpg.html" class="image"><img alt="" src="wiki/images/a/2F/a/a/a8/MoodleFiles.jpg" width="175" height="390" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.sloodle.org/articles/m/o/o/File:MoodleFiles.jpg.html" class="internal" title="Enlarge"><img src="../skins/common/images/m/a/g/magnify-clip.html" width="15" height="11" alt="" /></a></div>Moodle file directory as seen in Dreamweaver</div></div></div>
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: all" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>all</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<p>Questa è la parte più importante di Sloodle -- è un modulo di attività che si installa dentro Moodle, lo trovate dentro la cartella "sloodle" che avete scaricato prima.
+</p>
+<ol><li> Accedi alla tua installazione Moodle con FTP
+</li><li> Apri la cartella "mod" e vedrai cartelle come <i>assignment, chat, choice...</i>
+</li><li> Se c'è già una cartella chiamata "sloodle", <b>cancellala</b>
+</li><li> Copia la cartella "sloodle" che hai trovato nello zip che hai scaricato
+</li><li> Vai alla pagina di amministrazione del tuo browser web (aggiungi /admin alla url del tuo sito: <a rel="nofollow" class="external free" href="http://miosito.org/moodle/admin">http://miosito.org/moodle/admin</a>)
+</li><li> Vedrai una serie di azioni automatizzate che terminano con "sloodle tables have been set up correctly" (le tabelle di sloodle sono state installate correttamente)
+</li></ol>
+<h1> <span class="mw-headline" id="Installa_il_menu_di_Sloodle_.28opzionale.29_e_gli_strumenti_per_i_compiti_.28opzionale.29"> Installa il menu di Sloodle (opzionale) e gli strumenti per i compiti (opzionale) </span></h1>
+<h2> <span class="mw-headline" id="Il_blocco_di_menu_di_Sloodle_.28Opzionale.29"> Il blocco di menu di Sloodle (Opzionale) </span></h2>
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.2, 0.21, 0.3" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.2, 0.21, 0.3</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<p>Questo è un componente opzionale che puoi usare per mettere un "blocco" nelle tue pagine Moodle. Quando lo hai impostato il blocco mostrerà il dettaglio del tuo avatar (se è conosciuto), insieme a diversi link utili a parti importanti parti di Sloodle. E' raccomandata l'installazione per facilitare la navigazione, ma non è essenziale. Puoi trovare i file nella cartella "sloodle_menu" che avevi scaricato precedentemente.
+</p>
+<ol><li> Accedi alla tua installazione Moodle
+</li><li> Apri la cartella "blocks"
+</li><li> Se c'è già una cartella chiamata "sloodle_menu", <b>cancellala</b>
+</li><li> Copia la nuova cartella "sloodle_menu" 
+</li><li> Vai alla pagina di amministrazione del tuo browser web (aggiungi /admin)
+</li></ol>
+<h2> <span class="mw-headline" id="Plug_in_per_i_compiti_Sloodle_Object_.28Opzionale.29"> Plug_in per i compiti Sloodle Object (Opzionale) </span></h2>
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.3" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.3</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<p>Questo pluin è disponibile solo a partire dalla versione di Sloodle 0.3, e funziona come qualunque altro tipo di compito Moodle, è richiesto se vuoi usare lo strumento <a href="http__/localhost/sl/indexf1ec.html?title=Sloodle_PrimDrop&amp;action=edit&amp;redlink=1" class="new" title="Sloodle PrimDrop (page does not exist)">Sloodle PrimDrop</a>. Sfortunatamente, è anche più complicato da installare. Devi trovare la cartella che si chiama "sloodleobject". Dovrebbe essere nella cartella originale che hai scaricato oppure, in alternativa, la trovi nella cartella "sloodle" (vedi la sezione Modulo Sloodle qui sopra), cercando in "sloodle/mod/primdrop-1.0".
+</p>
+<ol><li> Accedi alla tua installazione Moodle
+</li><li> Apri la cartella "mod/assignment/type"
+</li><li> Se c'è già una cartella chiamata "sloodleobject", <b>cancellala</b>
+</li><li> Copia la nuova cartella "sloodleobject"
+</li></ol>
+<h3> <span class="mw-headline" id="Internazionalizzazione_del_plug-in_dei_compiti_.28Opzionale.29"> Internazionalizzazione del plug-in dei compiti (Opzionale) </span></h3>
+<p>Cioè, hai installato il plugin dei compiti, ma potresti anche aver bisogno di aggiungere una riga ai file di traduzione. Probabilmente lo devi fare per ogni lingua installata nel tuo sito:
+</p>
+<ol><li> Accedi alla tua installazione Moodle
+</li><li> Apri la cartella "lang/en_utf8"
+</li><li> Scaricati sul tuo pc il file "assignment.php" file (se sei connesso remotamente)
+</li><li> Apri il file "assignment.php"
+</li><li> Vai fino alla fine del file
+</li><li> Subito dopo l'ultima linea "$string...", aggiungi una nuova riga: $string['typesloodleobject'] = 'Sloodle Object';
+</li><li> Salva il file
+</li><li> Invia il tuo file di nuovo al tuo server Moodle (via ftp), sovrascrivendo l'originale (se sei connesso remotamente)
+</li></ol>
+<p>Puoi ripetere i passi precedenti per gli altri linguaggi installati. Per esempio, se il tuo sito usa il francese, devi aprire nello step 2 la cartella "lang/fr_utf8".
+</p>
+<h1> <span class="mw-headline" id="Attiva_gli_strumenti"> Attiva gli strumenti </span></h1>
+<p>Vai alla pagina di amministrazione di Moodle (/admin) cliccando su "Notifiche" o "Amministrazione...". Puoi anche semplicemente aggiungere "/admin" all'indirizzo del tuo sito per attivare questa funzionalità. Questo assicura che Moodle finisca l'installazione, ed esegue tutti i cambiamenti al database.
+</p>
+<h1> <span class="mw-headline" id="Passi_successivi"> Passi successivi </span></h1>
+<p>Sei adesso pronto a <a href="Configure_Sloodle.html" title="Configure Sloodle">configurare Sloodle</a> per il tuo sito, e poi <a href="Get_the_Sloodle_Objects.html" title="Get the Sloodle Objects" class="mw-redirect">prendere gli oggetti Sloodle</a>.
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 87/1000000
+Post‐expand include size: 1963/2097152 bytes
+Template argument size: 145/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Accedi_alla_tua_installazione_Moodle"><span class="tocnumber">1</span> <span class="toctext">Accedi alla tua installazione Moodle</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Ordina_le_cartelle_unzippate_dal_file_di_installazione_sloodle"><span class="tocnumber">2</span> <span class="toctext">Ordina le cartelle unzippate dal file di installazione sloodle</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Installa_il_Modulo_Sloodle"><span class="tocnumber">3</span> <span class="toctext">Installa il Modulo Sloodle</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Installa_il_menu_di_Sloodle_.28opzionale.29_e_gli_strumenti_per_i_compiti_.28opzionale.29"><span class="tocnumber">4</span> <span class="toctext">Installa il menu di Sloodle (opzionale) e gli strumenti per i compiti (opzionale)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Il_blocco_di_menu_di_Sloodle_.28Opzionale.29"><span class="tocnumber">4.1</span> <span class="toctext">Il blocco di menu di Sloodle (Opzionale)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Plug_in_per_i_compiti_Sloodle_Object_.28Opzionale.29"><span class="tocnumber">4.2</span> <span class="toctext">Plug_in per i compiti Sloodle Object (Opzionale)</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Internazionalizzazione_del_plug-in_dei_compiti_.28Opzionale.29"><span class="tocnumber">4.2.1</span> <span class="toctext">Internazionalizzazione del plug-in dei compiti (Opzionale)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Attiva_gli_strumenti"><span class="tocnumber">5</span> <span class="toctext">Attiva gli strumenti</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Passi_successivi"><span class="tocnumber">6</span> <span class="toctext">Passi successivi</span></a></li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Install_Sloodle-it by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:20 GMT -->
+</html>
+
+

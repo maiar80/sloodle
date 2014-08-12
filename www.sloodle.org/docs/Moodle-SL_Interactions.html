@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Moodle-SL_Interactions by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:18 GMT -->
+<head>
+    <title>Moodle-SL Interactions - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.2, 0.21" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.2, 0.21</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<p>Sloodle objects/scripts in Second Life interact with the Moodle website via '<a href="Linker_Scripts.html" title="Linker Scripts" class="mw-redirect">Linker Scripts</a>' in the Sloodle module. Some scripts also provide URL's for the SL user to follow, which takes them to Sloodle '<a href="Interface_Scripts.html" title="Interface Scripts" class="mw-redirect">Interface Scripts</a>', and in some cases, Moodle '<a href="Interface_Scripts.html" title="Interface Scripts" class="mw-redirect">Interface Scripts</a>' will send XMLRPC messages to Sloodle objects in Second Life.
+</p><p>Request to linker scripts typically occur via HTTP requests (<a rel="nofollow" class="external text" href="http://www.lslwiki.net/lslwiki/wakka.php?wakka=llHTTPRequest">llHTTPRequest</a>), while forwarding to interface scripts typically occur using the LSL function to load a URL (<a rel="nofollow" class="external text" href="http://www.lslwiki.net/lslwiki/wakka.php?wakka=llLoadURL">llLoadURL</a>). XMLRPC messages are initated from the script the Moodle.
+</p><p>The following list shows which LSL scripts have interactions with Sloodle scripts in Moodle.
+</p><p><br />
+</p>
+
+<h4> <span class="mw-headline" id="sloodle_server_course_setup_dialog">sloodle_server_course_setup_dialog</span></h4>
+<p>Used by: <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_reg_linker.php.html" title="Fileref:login/sl reg linker.php">login/sl_reg_linker.php</a>
+</li><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_teacher_courses_linker.php.html" title="Fileref:login/sl teacher courses linker.php">login/sl_teacher_courses_linker.php</a>
+</li><li> <a href="https://www.sloodle.org/articles/v/e/r/Fileref:version.php.html" title="Fileref:version.php">version.php</a>
+</li></ul>
+<h6> <span class="mw-headline" id="Load_URL">Load URL</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_welcome_reg.php.html" title="Fileref:login/sl welcome reg.php">login/sl_welcome_reg.php</a>
+</li><li> <a href="https://www.sloodle.org/articles/s/l/_/Fileref:sl_classroom/sl_object_auth.php.html" title="Fileref:sl classroom/sl object auth.php">sl_classroom/sl_object_auth.php</a>
+</li></ul>
+<h6> <span class="mw-headline" id="XMLRPC">XMLRPC</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_reg_linker.php.html" title="Fileref:login/sl reg linker.php">login/sl_reg_linker.php</a>
+</li><li> <a href="https://www.sloodle.org/articles/s/l/_/Fileref:sl_classroom/sl_object_auth.php.html" title="Fileref:sl classroom/sl object auth.php">sl_classroom/sl_object_auth.php</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="sl_profile_manager">sl_profile_manager</span></h4>
+<p>Used by: <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_2">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/s/l/_/Fileref:sl_classroom/sl_profile_linker.php.html" title="Fileref:sl classroom/sl profile linker.php">sl_classroom/sl_profile_linker.php</a>  <i>(directly, and via sloodle_profile_saver)</i>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="registration_booth">registration_booth</span></h4>
+<p>Used by: <a href="Sloodle_Registration_Booth.html" title="Sloodle Registration Booth">Sloodle Registration Booth</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_3">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_reg_linker.php.html" title="Fileref:login/sl reg linker.php">login/sl_reg_linker.php</a>
+</li></ul>
+<h6> <span class="mw-headline" id="Load_URL_2">Load URL</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_welcome_reg.php.html" title="Fileref:login/sl welcome reg.php">login/sl_welcome_reg.php</a> <i>(address not stored in script)</i>
+</li></ul>
+<h6> <span class="mw-headline" id="XMLRPC_2">XMLRPC</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_reg_linker.php.html" title="Fileref:login/sl reg linker.php">login/sl_reg_linker.php</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="enrolment_booth">enrolment_booth</span></h4>
+<p>Used by: <a href="Sloodle_Enrolment_Booth.html" title="Sloodle Enrolment Booth">Sloodle Enrolment Booth</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_4">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_enrol_linker.php.html" title="Fileref:login/sl enrol linker.php">login/sl_enrol_linker.php</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="classroom_access_checker">classroom_access_checker</span></h4>
+<p>Used by: <a href="Sloodle_Access_Checker.html" title="Sloodle Access Checker">Sloodle Access Checker</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_5">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_reg_linker.php.html" title="Fileref:login/sl reg linker.php">login/sl_reg_linker.php</a>
+</li><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_enrol_linker.php.html" title="Fileref:login/sl enrol linker.php">login/sl_enrol_linker.php</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="classroom_access_checker_door_controller">classroom_access_checker_door_controller</span></h4>
+<p>Used by: <a href="Sloodle_Access_Checker_Door.html" title="Sloodle Access Checker Door">Sloodle Access Checker Door</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_6">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_reg_linker.php.html" title="Fileref:login/sl reg linker.php">login/sl_reg_linker.php</a>
+</li><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_enrol_linker.php.html" title="Fileref:login/sl enrol linker.php">login/sl_enrol_linker.php</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="login_zone">login_zone</span></h4>
+<p>Used by: <a href="Sloodle_Login_Zone.html" title="Sloodle Login Zone" class="mw-redirect">Sloodle Login Zone</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_7">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_loginzone_linker.php.html" title="Fileref:login/sl loginzone linker.php">login/sl_loginzone_linker.php</a>
+</li></ul>
+<h4> <span class="mw-headline" id="sloodle_blog_hud">sloodle_blog_hud</span></h4>
+<p>Used by: <a href="Sloodle_Toolbar.html" title="Sloodle Toolbar">Sloodle Toolbar</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_8">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_reg_linker.php.html" title="Fileref:login/sl reg linker.php">login/sl_reg_linker.php</a>
+</li><li> <a href="https://www.sloodle.org/articles/b/l/o/Fileref:blog/sl_blog_linker.php.html" title="Fileref:blog/sl blog linker.php">blog/sl_blog_linker.php</a>
+</li></ul>
+<h6> <span class="mw-headline" id="Load_URL_3">Load URL</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_welcome_reg.php.html" title="Fileref:login/sl welcome reg.php">login/sl_welcome_reg.php</a> <i>(via sloodle_url_loader. Address not stored in script)</i>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="sloodle_object_distributor">sloodle_object_distributor</span></h4>
+<p>Used by: <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Sloodle Object Distributor</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_9">HTTP Request</span></h6>
+<ul><li> <a href="http__/localhost/sl/index71c1.html?title=Fileref:login/sl_distrib_channel_linker.php&amp;action=edit&amp;redlink=1" class="new" title="Fileref:login/sl distrib channel linker.php (page does not exist)">login/sl_distrib_channel_linker.php</a>
+</li></ul>
+<h6> <span class="mw-headline" id="XMLRPC_3">XMLRPC</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/s/l/_/Fileref:sl_distrib/sl_send_object.php.html" title="Fileref:sl distrib/sl send object.php">sl_distrib/sl_send_object.php</a>
+</li><li> <a href="https://www.sloodle.org/articles/s/l/_/Fileref:sl_distrib/sl_send_object_linker.php.html" title="Fileref:sl distrib/sl send object linker.php">sl_distrib/sl_send_object_linker.php</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="sloodle_object_selector">sloodle_object_selector</span></h4>
+<p>Used by: <a href="Sloodle_Object_Selector.html" title="Sloodle Object Selector">Sloodle Object Selector</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_10">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/s/l/_/Fileref:sl_distrib/sl_send_object_linker.php.html" title="Fileref:sl distrib/sl send object linker.php">sl_distrib/sl_send_object_linker.php</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="sloodle_webintercom">sloodle_webintercom</span></h4>
+<p>Used by: <a href="Sloodle_WebIntercom.html" title="Sloodle WebIntercom">Sloodle WebIntercom</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_11">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/m/o/d/Fileref:mod/chat/sl_webintercom_linker.php.html" title="Fileref:mod/chat/sl webintercom linker.php">mod/chat/sl_webintercom_linker.php</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="sloodle_metagloss">sloodle_metagloss</span></h4>
+<p>Used by: <a href="Sloodle_MetaGloss.html" title="Sloodle MetaGloss">Sloodle MetaGloss</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_12">HTTP Request</span></h6>
+<ul><li> <a href="https://www.sloodle.org/articles/m/o/d/Fileref:mod/glossary/sl_glossary_linker.php.html" title="Fileref:mod/glossary/sl glossary linker.php">mod/glossary/sl_glossary_linker.php</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="quiz">quiz</span></h4>
+<p>Used by: <a href="Sloodle_Quiz_Chair.html" title="Sloodle Quiz Chair">Sloodle Quiz Chair</a>
+</p>
+<h6> <span class="mw-headline" id="HTTP_Request_13">HTTP Request</span></h6>
+<ul><li> <a href="http__/localhost/sl/index69bd.html?title=Fileref:mod/quiz/sl_quiz_linker.php&amp;action=edit&amp;redlink=1" class="new" title="Fileref:mod/quiz/sl quiz linker.php (page does not exist)">mod/quiz/sl_quiz_linker.php</a>
+</li></ul>
+<p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 140/1000000
+Post‐expand include size: 841/2097152 bytes
+Template argument size: 18/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#sloodle_server_course_setup_dialog"><span class="tocnumber">1</span> <span class="toctext">sloodle_server_course_setup_dialog</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#HTTP_Request"><span class="tocnumber">1.1</span> <span class="toctext">HTTP Request</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Load_URL"><span class="tocnumber">1.2</span> <span class="toctext">Load URL</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#XMLRPC"><span class="tocnumber">1.3</span> <span class="toctext">XMLRPC</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#sl_profile_manager"><span class="tocnumber">2</span> <span class="toctext">sl_profile_manager</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#HTTP_Request_2"><span class="tocnumber">2.1</span> <span class="toctext">HTTP Request</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#registration_booth"><span class="tocnumber">3</span> <span class="toctext">registration_booth</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#HTTP_Request_3"><span class="tocnumber">3.1</span> <span class="toctext">HTTP Request</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Load_URL_2"><span class="tocnumber">3.2</span> <span class="toctext">Load URL</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#XMLRPC_2"><span class="tocnumber">3.3</span> <span class="toctext">XMLRPC</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#enrolment_booth"><span class="tocnumber">4</span> <span class="toctext">enrolment_booth</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#HTTP_Request_4"><span class="tocnumber">4.1</span> <span class="toctext">HTTP Request</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#classroom_access_checker"><span class="tocnumber">5</span> <span class="toctext">classroom_access_checker</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="#HTTP_Request_5"><span class="tocnumber">5.1</span> <span class="toctext">HTTP Request</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#classroom_access_checker_door_controller"><span class="tocnumber">6</span> <span class="toctext">classroom_access_checker_door_controller</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#HTTP_Request_6"><span class="tocnumber">6.1</span> <span class="toctext">HTTP Request</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="#login_zone"><span class="tocnumber">7</span> <span class="toctext">login_zone</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="#HTTP_Request_7"><span class="tocnumber">7.1</span> <span class="toctext">HTTP Request</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#sloodle_blog_hud"><span class="tocnumber">8</span> <span class="toctext">sloodle_blog_hud</span></a>
+<ul>
+<li class="toclevel-2 tocsection-20"><a href="#HTTP_Request_8"><span class="tocnumber">8.1</span> <span class="toctext">HTTP Request</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Load_URL_3"><span class="tocnumber">8.2</span> <span class="toctext">Load URL</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="#sloodle_object_distributor"><span class="tocnumber">9</span> <span class="toctext">sloodle_object_distributor</span></a>
+<ul>
+<li class="toclevel-2 tocsection-23"><a href="#HTTP_Request_9"><span class="tocnumber">9.1</span> <span class="toctext">HTTP Request</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#XMLRPC_3"><span class="tocnumber">9.2</span> <span class="toctext">XMLRPC</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="#sloodle_object_selector"><span class="tocnumber">10</span> <span class="toctext">sloodle_object_selector</span></a>
+<ul>
+<li class="toclevel-2 tocsection-26"><a href="#HTTP_Request_10"><span class="tocnumber">10.1</span> <span class="toctext">HTTP Request</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-27"><a href="#sloodle_webintercom"><span class="tocnumber">11</span> <span class="toctext">sloodle_webintercom</span></a>
+<ul>
+<li class="toclevel-2 tocsection-28"><a href="#HTTP_Request_11"><span class="tocnumber">11.1</span> <span class="toctext">HTTP Request</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#sloodle_metagloss"><span class="tocnumber">12</span> <span class="toctext">sloodle_metagloss</span></a>
+<ul>
+<li class="toclevel-2 tocsection-30"><a href="#HTTP_Request_12"><span class="tocnumber">12.1</span> <span class="toctext">HTTP Request</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-31"><a href="#quiz"><span class="tocnumber">13</span> <span class="toctext">quiz</span></a>
+<ul>
+<li class="toclevel-2 tocsection-32"><a href="#HTTP_Request_13"><span class="tocnumber">13.1</span> <span class="toctext">HTTP Request</span></a></li>
+</ul>
+</li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Moodle-SL_Interactions by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:21 GMT -->
+</html>
+
+

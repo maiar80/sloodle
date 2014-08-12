@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Linker_Script by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:56 GMT -->
+<head>
+    <title>Linker Script - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p>A "linker script" is any script in the Sloodle module (i.e. installed into Moodle) which allows objects in Second Life to communicate with the Moodle site. Its purpose is two-way: getting data in, and getting data out.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Getting_data_into_Moodle"> Getting data into Moodle </span></h3>
+<p>This first task of a linker script to put data into Moodle. LSL scripts cannot fill-in web-forms like a human user would do, but it can do something similar by sending HTTP parameters (usually using the GET or POST method). We need to have scripts available which will accept those parameters, process them, and hand them over to Moodle (usually to be stored in the database).
+</p><p>For example, every time the <a href="Sloodle_WebIntercom.html" title="Sloodle WebIntercom">Sloodle WebIntercom</a> 'hears' somebody chatting a message in Second Life, it will send the message, along with the avatar's name and/or UUID, to the <a href="https://www.sloodle.org/articles/m/o/d/Fileref:mod/chat/sl_webintercom_linker.php.html" title="Fileref:mod/chat/sl webintercom linker.php">WebIntercom linker</a> script. That linker will then process the parameters to find out which Moodle user the avatar represents, and it will put all of that information into the "chat_messages" table in the Moodle database. This processing in the linker script makes the WebIntercom compatible with the Moodle chatrooms.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Getting_data_from_Moodle"> Getting data from Moodle </span></h3>
+<p>Typically, a user will view Moodle through their web-browser (such as Internet Explore, or Mozilla Firefox). However, the usual Moodle web-pages are too complex and too big for LSL scripts in Second Life to handle. As such, all the irrelevant data needs to be removed, and everything else needs to be formatted carefully in a way that our LSL scripts can understand (see the <a href="Sloodle_communications_specification.html" title="Sloodle communications specification">Sloodle communications specification</a> for more information on the format). HTTP parameters are sometimes used for this too, so that the LSL script can request data in the exact format that it is needed.
+</p><p>For example, the <a href="https://www.sloodle.org/articles/l/o/g/Fileref:login/sl_enrol_linker.php.html" title="Fileref:login/sl enrol linker.php">enrolment linker</a> script provides various ways to query which courses are available. HTTP parameters can be provided to limit the query to a specific user, and/or to a specific category of courses. The course data is then formatted carefully to contain only the minimum of what is needed. There is no standard Moodle page which will do this.
+</p><p><br />
+</p>
+<h1> <span class="mw-headline" id="See_Also"> See Also </span></h1>
+<ul><li> <a href="Interface_Script.html" title="Interface Script">Interface Script</a>
+</li></ul>
+<p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 15/1000000
+Post‐expand include size: 486/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Linker_Script by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:56 GMT -->
+</html>
+
+

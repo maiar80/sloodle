@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Localization_String_Guidelines by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:37 GMT -->
+<head>
+    <title>Localization String Guidelines - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<h1> <span class="mw-headline" id="General_Guidelines"> General Guidelines </span></h1>
+<h3> <span class="mw-headline" id="String_Naming"> String Naming </span></h3>
+<p>Localization strings in the Moodle software are specified by two things: module name, and string name. In our case, the module name is "sloodle" (notice that is is in lower-case). The string names should all be concise English words/phrases to describe the purpose of the string (the names must be <i>exactly</i> the same across <i>all</i> languages).
+</p><p>Generally, the names should be made up only of lowercase letters and numbers. However, a colon can be introduced to group related strings into categories, like this:
+</p>
+<pre>"category:stringname"
+</pre>
+<p>The name of the category comes first, followed by a colon, and then the name of the string. This is particularly useful for error messages, where several messages may be almost exactly the same, or for large blocks of text which are made up of several paragraphs, for example:
+</p>
+<pre>"section:description1"
+"section:description2"
+</pre>
+<p><br />
+</p>
+<h3> <span class="mw-headline" id="String_Content"> String Content </span></h3>
+<p>It is imperative that you do not add PHP code to your localization strings -- remember that it will be executed in the localization file and <i>not</i> wherever the strings are used. Additionally, it is advisable to avoid HTML, although it is permissible where necessary.
+</p><p>If you need to use single or double quotation marks (' or ") or backslash (\) then you will need to escape them using an additional backslash, like this: \' \" \\
+</p><p>You may need to use HTML entities in some cases (such as &amp; in place of &amp;), although any other Unicode character should be fine.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 10/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Localization_String_Guidelines by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:37 GMT -->
+</html>
+
+

@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_Database_Usage by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:57 GMT -->
+<head>
+    <title>Sloodle Database Usage - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<p>Sloodle adds various pieces of information to Moodle's database. You can the information about exactly what it does here.
+</p>
+
+<h2> <span class="mw-headline" id="Sloodle_Tables"> Sloodle Tables </span></h2>
+<p>When the Sloodle module is installed (see <a href="Installing_the_Sloodle_Module.html" title="Installing the Sloodle Module" class="mw-redirect">Installing the Sloodle Module</a>), Moodle will create new database tables specially for it. All of these tables are prefixed with "sloodle_" (note, Moodle may also add its own prefix before that, such as "mdl_" or "moodle_"). You can find the database installation files in the Sloodle module soure code, in folder "db".
+</p>
+<h4> <span class="mw-headline" id="Sloodle_0.3"> Sloodle 0.3 </span></h4>
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.3" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.3</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<pre>Developers: <a href="https://www.sloodle.org/articles/s/l/o/Sloodle_0.3_Database_Schema.html" title="Sloodle 0.3 Database Schema">Sloodle 0.3 Database Schema</a>
+</pre>
+<table>
+
+<tr>
+<th> Table Name </th>
+<th> # Fields </th>
+<th> Description
+</th></tr>
+<tr>
+<td> <b>sloodle</b> </td>
+<td> 7 </td>
+<td> Each entry defines an <a href="Sloodle_Instances.html" title="Sloodle Instances">instance</a> of a Sloodle module (such as a <a href="Sloodle_Controller_Module.html" title="Sloodle Controller Module">Controller</a> or a <a href="Sloodle_Distributor_Module.html" title="Sloodle Distributor Module">Distributor</a> module)
+</td></tr>
+<tr>
+<td> <b>sloodle_controller</b> </td>
+<td> 4 </td>
+<td> Provides additional data about a <a href="Sloodle_Instances.html" title="Sloodle Instances">Sloodle Instance</a> specific to the <a href="Sloodle_Controller_Module.html" title="Sloodle Controller Module">Controller</a> module type
+</td></tr>
+<tr>
+<td> <b>sloodle_distributor</b> </td>
+<td> 4 </td>
+<td> Provides additional data about a <a href="Sloodle_Instances.html" title="Sloodle Instances">Sloodle Instance</a> specific to the <a href="Sloodle_Distributor_Module.html" title="Sloodle Distributor Module">Distributor</a> module type
+</td></tr>
+<tr>
+<td> <b>sloodle_distributor_entry</b> </td>
+<td> 3 </td>
+<td> Each entry describes a single object available through a particular <a href="Sloodle_Distributor_Module.html" title="Sloodle Distributor Module">Distributor</a> module
+</td></tr>
+<tr>
+<td> <b>sloodle_users</b> </td>
+<td> 5 </td>
+<td> Stores the details of each known avatar, and which Moodle account they are linked to (see <a href="Registration_and_Enrolment.html" title="Registration and Enrolment">Registration and Enrolment</a>)
+</td></tr>
+<tr>
+<td> <b>sloodle_course</b> </td>
+<td> 8 </td>
+<td> Stores Sloodle settings for each Moodle course, such as the location of the course <a href="Sloodle_LoginZone.html" title="Sloodle LoginZone">LoginZone</a> object, and whether or not <a href="Auto_registration-2.html" title="Auto registration" class="mw-redirect">auto registration</a> and <a href="Auto_enrolment-2.html" title="Auto enrolment" class="mw-redirect">auto enrolment</a> are enabled for this particular course
+</td></tr>
+<tr>
+<td> <b>sloodle_pending_avatars</b> </td>
+<td> 5 </td>
+<td> During the <a href="Registration_and_Enrolment.html" title="Registration and Enrolment">avatar registration</a> process, avatar data is temporarily stored here until it is linked to a Moodle user account
+</td></tr>
+<tr>
+<td> <b>sloodle_active_object</b> </td>
+<td> 8 </td>
+<td> Maintains a list of objects and internal passwords which have been <a href="Object_Authorisation.html" title="Object Authorisation" class="mw-redirect">authorised</a> for use with a particular <a href="Sloodle_Controller_Module.html" title="Sloodle Controller Module">Controller</a>
+</td></tr>
+<tr>
+<td> <b>sloodle_object_config</b> </td>
+<td> 4 </td>
+<td> Stores the <a href="http__/localhost/sl/index057f.html?title=Sloodle_web_configuration&amp;action=edit&amp;redlink=1" class="new" title="Sloodle web configuration (page does not exist)">configuration settings</a> for an <a href="Object_Authorisation.html" title="Object Authorisation" class="mw-redirect">authorised object</a> (or 'active' object)
+</td></tr>
+<tr>
+<td> <b>sloodle_login_notifications</b> </td>
+<td> 5 </td>
+<td> If an avatar is <a href="Auto_registration-2.html" title="Auto registration" class="mw-redirect">auto registered</a>, then their automatically generated login details are stored here until they can be sent into Second Life (via email, initiated by a <a href="Sloodle_Cron_Job.html" title="Sloodle Cron Job">cron job</a>)
+</td></tr>
+<tr>
+<td> <b>sloodle_layout</b> </td>
+<td> 4 </td>
+<td> Identifies a particular named layout of objects, stored using a <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>
+</td></tr>
+<tr>
+<td> <b>sloodle_layout_entry</b> </td>
+<td> 5 </td>
+<td> Each entry stores the name, position and rotation of an object in a layout
+</td></tr>
+<tr>
+<td> <b>sloodle_loginzone_allocation</b> </td>
+<td> 5 </td>
+<td> If a Moodle user has opted to use the <a href="Sloodle_LoginZone.html" title="Sloodle LoginZone">LoginZone</a> to <a href="Registration_and_Enrolment.html" title="Registration and Enrolment">register</a> their avatar, then their allocated login position is stored here until used
+</td></tr>
+<tr>
+<td> <b>sloodle_user_object</b> </td>
+<td> 7 </td>
+<td> The <a href="Sloodle_Toolbar.html" title="Sloodle Toolbar">Sloodle Toolbar</a> (and in future possibly other objects) can be <a href="Object_Authorisation.html" title="Object Authorisation" class="mw-redirect">authorised</a> by a user for their own user-centric tasks, such as writing blogs. This table stores the object/avatar association and security details.
+</td></tr></table>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="Sloodle_0.2_.2F_0.21"> Sloodle 0.2 / 0.21 </span></h4>
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.2, 0.21" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.2, 0.21</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<table>
+
+<tr>
+<th> Table Name </th>
+<th> # Fields </th>
+<th> Description
+</th></tr>
+<tr>
+<td> <b>sloodle</b> </td>
+<td> 3 </td>
+<td> (For future use.) Defines instances of the Sloodle module.
+</td></tr>
+<tr>
+<td> <b>sloodle_active_object</b> </td>
+<td> 5 </td>
+<td> Each entry represents one known Sloodle object, which has been <a href="Object_Authorization.html" title="Object Authorization">authorized</a>.
+</td></tr>
+<tr>
+<td> <b>sloodle_classroom_setup_profile</b> </td>
+<td> 3 </td>
+<td> Each entry represents a classroom profile, which stores a layout of Sloodle objects for the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>.
+</td></tr>
+<tr>
+<td> <b>sloodle_classroom_setup_profile_entry</b> </td>
+<td> 5 </td>
+<td> Individual object entries for classroom profiles.
+</td></tr>
+<tr>
+<td> <b>sloodle_users</b> </td>
+<td> 9 </td>
+<td> Stores the avatars associated with the Moodle site, and notes which Moodle account each one is linked to.
+</td></tr></table>
+<p><br /><br />
+</p>
+<h4> <span class="mw-headline" id="Sloodle_0.19"> Sloodle 0.19 </span></h4>
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.19" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.19</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<p><b>NOTE:</b> this information is no longer current. It is stored only for reference.
+</p>
+<table>
+
+<tr>
+<th> Table Name </th>
+<th> # Fields </th>
+<th> Description
+</th></tr>
+<tr>
+<td> <b>sloodle_users</b> </td>
+<td> 8 </td>
+<td> Stores the avatars associated with the Moodle site, and notes which Moodle account each one is linked to.
+</td></tr>
+<tr>
+<td> <b>sloodle_config</b> </td>
+<td> 2 </td>
+<td> Stores Sloodle configuration settings.
+</td></tr>
+<tr>
+<td> <b>sloodle_active_object</b> </td>
+<td> 5 </td>
+<td> Each entry represents one known Sloodle object, which has been <a href="Object_Authorization.html" title="Object Authorization">authorized</a>.
+</td></tr>
+<tr>
+<td> <b>sloodle_classroom_setup_profile</b> </td>
+<td> 3 </td>
+<td> Each entry represents a classroom profile, which stores a layout of Sloodle objects for the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>.
+</td></tr>
+<tr>
+<td> <b>sloodle_classroom_setup_profile_entry</b> </td>
+<td> 5 </td>
+<td> Individual object entries for classroom profiles.
+</td></tr></table>
+<p><br />
+</p>
+<h2> <span class="mw-headline" id="Other_Tables"> Other Tables </span></h2>
+<p>Sloodle also affects other table in the database, but it only ever adds entries to these tables, so it should behave in exactly the same way as the normal Moodle tools.
+</p>
+<h4> <span class="mw-headline" id="Moodle_Config"> Moodle Config </span></h4>
+<p>Sloodle 0.3 stores the following data in the central Moodle configuration table:
+</p>
+<ul><li> Expiry time of <a href="Object_Authorisation.html" title="Object Authorisation" class="mw-redirect">authorised objects</a>
+</li><li> Availability of <a href="Auto_registration-2.html" title="Auto registration" class="mw-redirect">auto registration</a>
+</li><li> Availability of <a href="Auto_enrolment-2.html" title="Auto enrolment" class="mw-redirect">auto enrolment</a>
+</li></ul>
+<p>Sloodle 0.2/0.21 stores the following data in the central Moodle configuration table:
+</p>
+<ul><li> <a href="Prim_Password.html" title="Prim Password">Prim Password</a>
+</li><li> <a href="User_Authentication_Method.html" title="User Authentication Method">User Authentication Method</a>
+</li><li> <a href="XMLRPC_in_Sloodle.html" title="XMLRPC in Sloodle">XMLRPC channel</a> and contents of <a href="Sloodle_Object_Distributor.html" title="Sloodle Object Distributor">Sloodle Object Distributor</a>
+</li><li> Region, position and size of <a href="Sloodle_Login_Zone.html" title="Sloodle Login Zone" class="mw-redirect">Sloodle Login Zone</a>
+</li></ul>
+<p><br />
+</p>
+<h4> <span class="mw-headline" id="Blog"> Blog </span></h4>
+<p>If anybody uses the <a href="Sloodle_Toolbar.html" title="Sloodle Toolbar">Sloodle Toolbar</a> to write blog entries, then Sloodle will add entries to the blog entry table ("post") in your Moodle database.
+</p>
+<h4> <span class="mw-headline" id="Chat"> Chat </span></h4>
+<p>If the <a href="Sloodle_WebIntercom.html" title="Sloodle WebIntercom">Sloodle WebIntercom</a> is used with a chatroom on your Moodle site, then Sloodle will read from and write to the "chat_messages" messages table.
+</p>
+<h4> <span class="mw-headline" id="Quiz"> Quiz </span></h4>
+<p>If the <a href="Sloodle_Quiz_Chair.html" title="Sloodle Quiz Chair">Sloodle Quiz Chair</a> is used with a quiz on your Moodle site, then a student may make official attempts at the quiz (table "quiz_attempts"). Question data is read using the standard Moodle code. This can ultimately affect the grading. <b>WARNING!</b> <i>Before</i> Sloodle 0.3, the Quiz Chair could skew results by allowing unlimited re-attempts.<br />
+<b>Note:</b> the <a href="Sloodle_Pile_On_Quiz.html" title="Sloodle Pile On Quiz">Sloodle Pile On Quiz</a> will not add attempts for the students who use it, although it may have to create a 'ghost' attempt for the educator in order to read question data correctly.
+</p>
+<h4> <span class="mw-headline" id="Glossary"> Glossary </span></h4>
+<p>The <a href="Sloodle_MetaGloss.html" title="Sloodle MetaGloss">Sloodle MetaGloss</a> tool will read from (but <i>not</i> write to) the glossary tables in your database ("glossary", "glossary_alias", "glossary_entries").
+</p>
+<h4> <span class="mw-headline" id="Choice"> Choice </span></h4>
+<p><b>Sloodle 0.3 only</b>: The <a href="Sloodle_Choice.html" title="Sloodle Choice">Sloodle Choice</a> tool will read information from your choice module tables ("choice" and "choice_options"), and if anybody selects an option in-world, then it will add responses to the "choice_answers" table.
+</p>
+<h4> <span class="mw-headline" id="PrimDrop"> PrimDrop </span></h4>
+<p><b>Sloodle 0.3 only</b>: If you choose to install the <a href="http__/localhost/sl/indexe854.html?title=Sloodle_Object_Assignment&amp;action=edit&amp;redlink=1" class="new" title="Sloodle Object Assignment (page does not exist)">Sloodle Object Assignment</a> plugin and use the <a href="http__/localhost/sl/indexf1ec.html?title=Sloodle_PrimDrop&amp;action=edit&amp;redlink=1" class="new" title="Sloodle PrimDrop (page does not exist)">Sloodle PrimDrop</a> with it, then whenever a student submits an object in-world, an attempt will be added to the assignment you specify (table "assignment_submissions"). This will be reflected in the Moodle gradebook if you grade the submission.
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 81/1000000
+Post‐expand include size: 1529/2097152 bytes
+Template argument size: 32/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Sloodle_Tables"><span class="tocnumber">1</span> <span class="toctext">Sloodle Tables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Sloodle_0.3"><span class="tocnumber">1.1</span> <span class="toctext">Sloodle 0.3</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Sloodle_0.2_.2F_0.21"><span class="tocnumber">1.2</span> <span class="toctext">Sloodle 0.2 / 0.21</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Sloodle_0.19"><span class="tocnumber">1.3</span> <span class="toctext">Sloodle 0.19</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Other_Tables"><span class="tocnumber">2</span> <span class="toctext">Other Tables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Moodle_Config"><span class="tocnumber">2.1</span> <span class="toctext">Moodle Config</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Blog"><span class="tocnumber">2.2</span> <span class="toctext">Blog</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Chat"><span class="tocnumber">2.3</span> <span class="toctext">Chat</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Quiz"><span class="tocnumber">2.4</span> <span class="toctext">Quiz</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Glossary"><span class="tocnumber">2.5</span> <span class="toctext">Glossary</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Choice"><span class="tocnumber">2.6</span> <span class="toctext">Choice</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#PrimDrop"><span class="tocnumber">2.7</span> <span class="toctext">PrimDrop</span></a></li>
+</ul>
+</li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Sloodle_Database_Usage by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:36:58 GMT -->
+</html>
+
+

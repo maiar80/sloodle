@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" xml:lang="en">
+
+<!-- Mirrored from www.sloodle.org/docs/Object_Authorization by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:56 GMT -->
+<head>
+    <title>Object Authorization - SLIS Second Life Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    .sloodle-custom ul,ol{padding:15px !important}
+    </style>
+<meta name="keywords" content="moodle, SLOODLE: Administration: Notifications" />
+<script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="../css/all.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body  id="page-admin-index" class="format-site admin path-admin safari dir-ltr lang-en yui-skin-sam yui3-skin-sam sloodle-moodle pagelayout-admin course-1 context-1 has-region-side-pre used-region-side-pre">
+
+<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<nav role="navigation" class="navbar navbar-default">
+    <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.sloodle.org/">SLOODLE</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/download/">Download</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/research/">Research</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/moodle/mod/forum/index.php?id=3">Forums</a>
+        <a class="navbar-brand" href="https://www.sloodle.org/docs">Documentation</a>
+    </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+
+    <div id="page-content" class="sloodle-custom">
+
+
+	<table id="content_table"><tr><td class="main">
+
+	<div class="post" id="" style="width:100%">
+
+<ul><li> <b>Note:</b> this page refers to authorizing course-based objects. For user-centric objects, such as the <a href="Sloodle_Toolbar.html" title="Sloodle Toolbar">Sloodle Toolbar</a>, see the <a href="http__/localhost/sl/index9bf1.html?title=User_Object_Authorization&amp;action=edit&amp;redlink=1" class="new" title="User Object Authorization (page does not exist)">User Object Authorization</a> page.
+</li></ul>
+<p><br />
+Object authorization is an alternative to the <a href="Prim_Password.html" title="Prim Password">Prim Password</a> security method for Sloodle objects. Instead of having a single password for all objects in the course/site to use, the teacher or administrator must explicitly authorize an individual object whenever it is going to be used. If the object's key (UUID) changes (e.g. duplication, deletion etc.), then it must be re-authorized.
+</p><p>Note that object authorization is performed slightly differently depending on which version of Sloodle you are using. In Sloodle 0.3, objects are authorized for specific courses, and this can be done by anybody who is a teacher on that course. In older versions, objects were authorized for the entire site, and this could only be done by administrators.
+</p><p><br />
+</p>
+
+<h1> <span class="mw-headline" id="Object_Specific_Key"> Object Specific Key </span></h1>
+<p>At the heart of the object authorization process is the object-specific key. This is a combination of the object's UUID, and numeric password (normally 9 digits). It takes the format "UUID|password", for example:
+</p>
+<pre>abcdefgh-1234-5678-ijkl-mnopqrstuvwx|123456789
+</pre>
+<p>The string as a whole is typically stored and passed in a variable/parameter called 'sloodlepwd'. Any script handling passwords like this should automatically tell the different between an object-specific key, and a <a href="Prim_Password.html" title="Prim Password">Prim Password</a> (the prim password does not contain the UUID).
+</p><p><br />
+</p>
+<h1> <span class="mw-headline" id="Sloodle_0.3"> Sloodle 0.3 </span></h1>
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.3" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.3</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<h3> <span class="mw-headline" id="Authorizing_an_Object"> Authorizing an Object </span></h3>
+<p>Object authorization is the recommended approach to security in Sloodle 0.3, and it will be automatically performed for you on tools which are rezzed using the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a> (although you will still need to <a href="http__/localhost/sl/index057f.html?title=Sloodle_web_configuration&amp;action=edit&amp;redlink=1" class="new" title="Sloodle web configuration (page does not exist)">configure</a> them). If you rez an object manually (e.g. from your inventory) then you must touch it to initiate authorization. You must then chat the URL of your Moodle address, starting with "http", but without a slash (/) or a file (*.php) at the end. For example:
+</p>
+<pre>http://www.sloodle.org
+</pre>
+<p>You can also chat it on channel 1, so that you don't disturb others, e.g.:
+</p>
+<pre>/1 http://www.myeducationalsite.org/moodle
+</pre>
+<p><br />
+The tool will then confirm that it can communicate with the Moodle site, and will then give you a URL. Load the URL in your browser, and login to Moodle if necessary. You will then see a page with a box listing all the courses on which you are a teacher/administrator, and which can be used with Sloodle. Below each course will be a list of the <a href="Sloodle_Controller_Module.html" title="Sloodle Controller Module">Sloodle Controller Modules</a> in that course -- select which one you would like to connect to. Click on the submit button at the bottom of the page to complete authorization. You will then be forwarded to the <a href="http__/localhost/sl/index057f.html?title=Sloodle_web_configuration&amp;action=edit&amp;redlink=1" class="new" title="Sloodle web configuration (page does not exist)">web configuration</a> page.
+</p><p><br />
+Note: below the box of courses, there is a question asking if you want to authorize the object. Normally leave that set to "Yes", however, if you decide not to authorize the object, select "No" and click the submit button. This will delete the object from the database.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Viewing_Authorized_Objects"> Viewing Authorized Objects </span></h3>
+<p>If you would like to view, delete or re-configure any objects which have been authorized for a course, then navigate to that course's main page. There should be at least one <a href="Sloodle_Controller_Module.html" title="Sloodle Controller Module">Sloodle Controller Module</a> on the course, so click on it, and on the subsequent page, you will see a list of objects at the bottom.
+</p>
+<h4> <span class="mw-headline" id="Re-configuring"> Re-configuring </span></h4>
+<p>Click on the object name to go to its configuration page where you will see its current settings, and change them. Please note, however, that the object in-world will <i>not</i> automatically download this new configuration. You will need to force it to retrieve a new configuration.
+</p><p>The simplest way to do this is to reset the main LSL script. You can do this if you right-click the object, click "Edit", select the "Contents" tab, and double-click the script whose name begins with "sloodle_mod_". The script should open up, at which point click the "Reset" button at the bottom right, close the script, and close the edit window. Finally, touch the tool, and it will report that it is requesting its configuration, and then you can begin using it again.
+</p>
+<h4> <span class="mw-headline" id="Deleting"> Deleting </span></h4>
+<p>You can also delete objects by ticking the checkboxes to the side, and clicking the delete button at the bottom. Deleting authorized objects will prevent that object from accessing your Moodle site by deleting its password and configuration data from the database. This will not alter the tool in Second Life, except that it will no longer be able to communicate with Moodle. You can re-authorise the object by resetting or re-rezzing it and starting the authorisation process again.
+</p><p><br />
+</p>
+<h3> <span class="mw-headline" id="Authorization_Expiry"> Authorization Expiry </span></h3>
+<p>It is important to note that authorized objects will 'expire' after a period of inactivity. The duration can be changed in the <a href="Sloodle_Module_Configuration.html" title="Sloodle Module Configuration" class="mw-redirect">Sloodle Module Configuration</a> (which must be done by an administrator), but is 7 days by default. A tool is considered inactive if it is not rezzed or being used at all for 7 days. Any tool which still exists in-world (i.e. has not been deleted) will normally notify Moodle 2 or 3 times per day that it is still active.
+</p><p><br />
+</p>
+<h1> <span class="mw-headline" id="Sloodle_0.19.2C_0.2.2C_0.21"> Sloodle 0.19, 0.2, 0.21 </span></h1>
+<p style="text-align:right;"><span title="This information only applies to Sloodle versions: 0.19,0.2,0.21" style="vertical-align:middle; padding:4px; font-size:12pt; background-color:#ccffff; border:solid 1px #7777ff;">Sloodle Versions: <strong>0.19,0.2,0.21</strong> <span style="font-size:75%; vertical-align:middle;"><a href="Sloodle_Versions.html" title="Sloodle Versions">(?)</a></span></span></p>
+<p>Older versions of Sloodle had a much more basic object authorization system. The only Sloodle tool which supported it was the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a> (version 0.71 and earlier). Additionally, each object was authorized to access the entire Moodle site, and the authorization never expired.
+</p>
+<h3> <span class="mw-headline" id="Authorizing_an_Object_2"> Authorizing an Object </span></h3>
+<p>To initiate authorization of the <a href="Sloodle_Set.html" title="Sloodle Set">Sloodle Set</a>, you have to touch the slanted control panel, select "Set Moodle", and chat the address of your Moodle site on chat channel 1, e.g.:
+</p>
+<pre>http://www.sloodle.org
+</pre>
+<p>You will then be given a URL, which you should load in your browser and login to Moodle if necessary. You will see a page identifying the object your are authorizing. Click the "Yes" button to authorize the object.
+</p><p><br />
+</p>
+<h1> <span class="mw-headline" id="Developer_Information"> Developer Information </span></h1>
+<p>The security is implemented in a similar way to <a href="Prim_Password.html" title="Prim Password">Prim Password</a> security, except that the passwords are per-object instead of per-<a href="http__/localhost/sl/index9795.html?title=Sloodle_Conroller_Module&amp;action=edit&amp;redlink=1" class="new" title="Sloodle Conroller Module (page does not exist)">Controller</a> (Sloodle 0.3) or per-site (Sloodle &lt;= 0.21). When an object connects to a Sloodle script in Moodle, the Sloodle system attempts to 'authenticate' the request. It does this by checking the 'sloodlepwd' parameter -- if it is simply a numerical password, then it is treated as a <a href="Prim_Password.html" title="Prim Password">Prim Password</a>. However, if it contains a UUID as well (in the format "UUID|password"), then Sloodle looks up the table of active objects for an object identified by the UUID, and checks if the password matches.
+</p><p>In Sloodle 0.3, the objects are authorized for individual <a href="Sloodle_Controller_Module.html" title="Sloodle Controller Module">Sloodle Controller Modules</a>, and so a further check is initiated to make sure that the object is not trying to connect to an unauthorised Controller. The Controller being accessed is identified by its course module ID in the 'sloodlecontrollerid' HTTP parameter. Furthermore, whenever the system attempts to load a Moode module (such as a chatroom or glossary), it will ensure that the module is in the same course as the Controller.
+</p>
+<h3> <span class="mw-headline" id="Password_Creation"> Password Creation </span></h3>
+<p>In Sloodle version <i>before</i> 0.3, the Moodle site would send an <a href="XMLRPC_in_Sloodle.html" title="XMLRPC in Sloodle">XMLRPC</a> message to the Sloodle object, containing its new password. However, in Sloodle 0.3, the object itself generates it own password, and sends it to Moodle. This is much more secure, as the password is not passed into Second Life at all, reducing the likelihood of unauthorised interception.
+</p><p><br />
+</p>
+<table style="background-color:white; border:1px solid #0099cc; text-align:center; width:100%;">
+<tr>
+<th style="background-color:#99d9ea;" colspan="4"> This page is part of the SLOODLE documentation
+</th></tr>
+<tr>
+<td style="border-bottom:solid 1px #dddddd;"> Docs: <a href="SloodleUserDocs.html" title="SloodleUserDocs" class="mw-redirect">Users</a> | <a href="SloodleAdminDocs.html" title="SloodleAdminDocs" class="mw-redirect">Administrators</a> | <a href="SloodleDevDocs.html" title="SloodleDevDocs" class="mw-redirect">Developers</a>
+</td></tr>
+<tr>
+<td style=""> <span style="float:left"><a href="Sloodle.html" title="Sloodle" class="mw-redirect">Document Top</a></span> <span style="float:right"><a rel="nofollow" class="external text" href="http://www.sloodle.org/">Sloodle.org</a></span>
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 94/1000000
+Post‐expand include size: 1192/2097152 bytes
+Template argument size: 32/2097152 bytes
+Expensive parser function count: 0/100
+-->
+</div>	<td style="vertical-align:top; padding:10px;">
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Object_Specific_Key"><span class="tocnumber">1</span> <span class="toctext">Object Specific Key</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Sloodle_0.3"><span class="tocnumber">2</span> <span class="toctext">Sloodle 0.3</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Authorizing_an_Object"><span class="tocnumber">2.1</span> <span class="toctext">Authorizing an Object</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Viewing_Authorized_Objects"><span class="tocnumber">2.2</span> <span class="toctext">Viewing Authorized Objects</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Re-configuring"><span class="tocnumber">2.2.1</span> <span class="toctext">Re-configuring</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Deleting"><span class="tocnumber">2.2.2</span> <span class="toctext">Deleting</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#Authorization_Expiry"><span class="tocnumber">2.3</span> <span class="toctext">Authorization Expiry</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Sloodle_0.19.2C_0.2.2C_0.21"><span class="tocnumber">3</span> <span class="toctext">Sloodle 0.19, 0.2, 0.21</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Authorizing_an_Object_2"><span class="tocnumber">3.1</span> <span class="toctext">Authorizing an Object</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Developer_Information"><span class="tocnumber">4</span> <span class="toctext">Developer Information</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Password_Creation"><span class="tocnumber">4.1</span> <span class="toctext">Password Creation</span></a></li>
+</ul>
+</li>
+</ul>	</td>
+
+    </td></tr></table>
+
+<br />
+<br />
+<div id="footer_info" style="font-size:80%; text-align:center">
+Second Life® is a trademark of Linden Research, Inc. SLOODLE is not affiliated with or sponsored by Linden Research.<br/>
+<br />
+<br />
+</div>
+
+</div> <!-- End of the "page" div started in header.php... I think... PRB -->
+
+
+		
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7139194-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+<!-- Mirrored from www.sloodle.org/docs/Object_Authorization by HTTrack Website Copier/3.x [XR&CO'2008], Sun, 10 Aug 2014 23:35:58 GMT -->
+</html>
+
+
